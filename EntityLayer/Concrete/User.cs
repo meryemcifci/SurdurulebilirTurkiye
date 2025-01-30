@@ -11,5 +11,11 @@ namespace EntityLayer.Concrete
     {
         public string FullName { get; set; }
 
+
+        public ICollection<Contact> Contacts { get; set; }
+        public ICollection<News> NewsArticles { get; set; }
+        public ICollection<ElectricityCalculation> ElectricityCalculations { get; set; }
+        public ICollection<NaturalGasCalculation> NaturalGasCalculations { get; set; }
+        public ICollection<CarEmission> CarEmissions { get; set; }
     }
 }
