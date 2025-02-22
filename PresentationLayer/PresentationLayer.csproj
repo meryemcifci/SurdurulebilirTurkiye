@@ -30,4 +30,9 @@
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\SustainableTürkiyeFrontend\.dist\" />
+    <Folder Include="wwwroot\SustainableTürkiyeFrontend\.vscode\" />
+  </ItemGroup>
+
 </Project>

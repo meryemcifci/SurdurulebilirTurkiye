@@ -2,7 +2,112 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="slider-container">
+    <div class="slider">
+        <div class="slide active">
+            <img src="~/images/account.jpg" asp-append-version="true" alt="Slide 1">
+            <div class="caption">Sürdürülebilir Geleceğe Adım Atın!</div>
+        </div>
+        <div class="slide">
+            <img src="~/images/account.jpg" asp-append-version="true" alt="Slide 2">
+            <div class="caption">Doğa Dostu Çözümler Burada</div>
+        </div>
+        <div class="slide">
+            <img src="~/images/account.jpg" asp-append-version="true" alt="Slide 3">
+            <div class="caption">Geleceği Birlikte İnşa Edelim</div>
+        </div>
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
 </div>
+
+<!-- Slider CSS -->
+<style>
+    .slider-container {
+        position: relative;
+        z-index: 1; 
+        max-width: 100%;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    .slider {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+        min-width: 100%;
+        position: relative;
+    }
+
+        .slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+    .caption {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1.5rem;
+    }
+
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 15px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+</style>
+
+<!-- Slider JavaScript -->
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.style.transform = `translateX(${(i - index) * 100}%)`;
+      });
+    }
+
+    nextBtn.addEventListener("click", () => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    });
+
+    prevBtn.addEventListener("click", () => {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    });
+
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }, 5000);
+
+    showSlide(currentSlide);
+</script>
+>
