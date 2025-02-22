@@ -70,7 +70,9 @@ using (var scope = app.Services.CreateScope())
 app.UseRouting();
 
 app.UseAuthentication();  
-app.UseAuthorization();   
+app.UseAuthorization();
+
+app.UseStaticFiles();
 
 
 app.UseEndpoints(endpoints =>

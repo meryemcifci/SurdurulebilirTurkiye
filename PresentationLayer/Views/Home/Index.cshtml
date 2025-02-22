@@ -5,15 +5,15 @@
 <div class="slider-container">
     <div class="slider">
         <div class="slide active">
-            <img src="~/images/account.jpg" asp-append-version="true" alt="Slide 1">
+            <img src="~/SustainableTürkiyeFrontend/images/5.jpg" asp-append-version="true" alt="Slide 1">
             <div class="caption">Sürdürülebilir Geleceğe Adım Atın!</div>
         </div>
         <div class="slide">
-            <img src="~/images/account.jpg" asp-append-version="true" alt="Slide 2">
+            <img src="~/SustainableTürkiyeFrontend/images/bg1.jpg" asp-append-version="true" alt="Slide 2">
             <div class="caption">Doğa Dostu Çözümler Burada</div>
         </div>
         <div class="slide">
-            <img src="~/images/account.jpg" asp-append-version="true" alt="Slide 3">
+            <img src="~/SustainableTürkiyeFrontend/images/bg2.jpg" asp-append-version="true" alt="Slide 3">
             <div class="caption">Geleceği Birlikte İnşa Edelim</div>
         </div>
     </div>
@@ -25,39 +25,49 @@
 <style>
     .slider-container {
         position: relative;
-        z-index: 1; 
+        width: 100%;
         max-width: 100%;
         margin: auto;
         overflow: hidden;
+        display: flex;
+        justify-content: center; /* Orta hizalama */
+        align-items: center;
+        background-color: #f0f0f0; /* Slider arka plan rengi */
     }
 
     .slider {
         display: flex;
+        width: 300%; /* 3 slide için */
         transition: transform 0.5s ease-in-out;
     }
 
     .slide {
-        min-width: 100%;
+        flex: 1 0 100%;
         position: relative;
     }
 
-        .slide img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-        }
+    .slide img {
+        max-width: 100%; /* Görüntünün maksimum genişliği */
+        height: auto; /* Orijinal oranları koru */
+        display: block;
+        margin: auto; /* Ortalamak için */
+    }
 
     .caption {
         position: absolute;
-        bottom: 20px;
+        top: 50%; /* Ortaya al */
         left: 50%;
-        transform: translateX(-50%);
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
-        padding: 10px 20px;
-        border-radius: 5px;
-        font-size: 1.5rem;
+        transform: translate(-50%, -50%); /* Tam ortalamak için */
+        background-color: rgba(0, 0, 0, 0.5); /* Yarı saydam arka plan */
+        color: greenyellow;
+        padding: 15px 30px;
+        border-radius: 8px;
+        font-size: 1.8rem;
+        text-align: center;
+        font-weight: bold;
+        max-width: 80%; /* Uzun metinler taşmasın */
     }
+
 
     .prev, .next {
         position: absolute;
@@ -69,6 +79,7 @@
         padding: 15px;
         cursor: pointer;
         font-size: 18px;
+        z-index: 2;
     }
 
     .prev {
@@ -82,32 +93,33 @@
 
 <!-- Slider JavaScript -->
 <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll(".slide");
-    const prevBtn = document.querySelector(".prev");
-    const nextBtn = document.querySelector(".next");
+    document.addEventListener("DOMContentLoaded", function () {
+        let currentSlide = 0;
+        const slides = document.querySelectorAll(".slide");
+        const slider = document.querySelector(".slider");
+        const prevBtn = document.querySelector(".prev");
+        const nextBtn = document.querySelector(".next");
+        const totalSlides = slides.length;
 
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.style.transform = `translateX(${(i - index) * 100}%)`;
-      });
-    }
+        function showSlide(index) {
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }
 
-    nextBtn.addEventListener("click", () => {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
+        nextBtn.addEventListener("click", () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        });
+
+        prevBtn.addEventListener("click", () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        });
+
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }, 5000);
+
+        showSlide(currentSlide);
     });
-
-    prevBtn.addEventListener("click", () => {
-      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-      showSlide(currentSlide);
-    });
-
-    setInterval(() => {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
-    }, 5000);
-
-    showSlide(currentSlide);
 </script>
->
