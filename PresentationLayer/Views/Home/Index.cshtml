@@ -1,16 +1,18 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="~/SustainableTürkiyeFrontend/css/style.css">
 
 <div class="slider-container">
     <div class="slider">
         <div class="slide active">
-            <img src="~/SustainableTürkiyeFrontend/images/5.jpg" asp-append-version="true" alt="Slide 1">
-            <div class="caption">Sürdürülebilir Geleceğe Adım Atın!</div>
-        </div>
-        <div class="slide">
             <img src="~/SustainableTürkiyeFrontend/images/bg1.jpg" asp-append-version="true" alt="Slide 2">
             <div class="caption">Doğa Dostu Çözümler Burada</div>
+        </div>
+        <div class="slide">
+            <img src="~/SustainableTürkiyeFrontend/images/5.jpg" asp-append-version="true" alt="Slide 1">
+            <div class="caption">Sürdürülebilir Geleceğe Adım Atın!</div>
         </div>
         <div class="slide">
             <img src="~/SustainableTürkiyeFrontend/images/bg2.jpg" asp-append-version="true" alt="Slide 3">
@@ -20,6 +22,64 @@
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
 </div>
+<!-- Sürdürülebilir Kalkınma Amaçları -->
+<section class="goals-section">
+    <h2>Türkiye’nin Sürdürülebilir Kalkınma Amaçları</h2>
+    <div class="goals-grid">
+        <a href="http://www.surdurulebilirkalkinma.gov.tr/amaclari/yoksulluga-son/">
+            <img src="~/SustainableTürkiyeFrontend/images/SDG-1.svg" asp-append-version="true" alt="Yoksulluğa Son">
+        </a>
+        <a href="http://www.surdurulebilirkalkinma.gov.tr/amaclari/acligi-bitirmek/">
+            <img src="~/SustainableTürkiyeFrontend/images/SDG-2.svg" asp-append-version="true" alt="Açlığa Son">
+        </a>
+        <a href="http://www.surdurulebilirkalkinma.gov.tr/amaclari/saglik-ve-refah/">
+            <img src="~/SustainableTürkiyeFrontend/images/SDG-3.svg" asp-append-version="true" alt="Sağlık ve Kaliteli Yaşam">
+        </a>
+        <a href="http://www.surdurulebilirkalkinma.gov.tr/amaclari/herkes-icin-kapsayici-ve-hakkaniyetli-egitim/">
+            <img src="~/SustainableTürkiyeFrontend/images/SDG-4.svg" asp-append-version="true" alt="Nitelikli Eğitim">
+        </a>
+        <a href="http://www.surdurulebilirkalkinma.gov.tr/hedefler/cinsiyet-esitligini-saglamak/">
+            <img src="~/SustainableTürkiyeFrontend/images/SDG-5.svg" asp-append-version="true" alt="Toplumsal Cinsiyet Eşitliği">
+        </a>
+        <a href="http://www.surdurulebilirkalkinma.gov.tr/hedefler/herkes-icin-su-ve-kanalizasyon-hizmetlerinin-ulasilabilirligi/">
+            <img src="~/SustainableTürkiyeFrontend/images/SDG-6.svg" asp-append-version="true" alt="Temiz Su ve Sanitasyon">
+        </a>
+        <a href="http://www.surdurulebilirkalkinma.gov.tr/hedefler/herkes-icin-surdurulebilir-ve-cagdas-enerjiye-erisimi-saglamak/">
+            <img src="~/SustainableTürkiyeFrontend/images/SDG-7.svg" asp-append-version="true" alt="Erişilebilir ve Temiz Enerji">
+        </a>
+        <a href="http://www.surdurulebilirkalkinma.gov.tr/hedefler/surdurulebilir-ekonomik-buyumeyi-tam-ve-uretken-istihdami-ve-insana-yakisir-isleri-yayginlastirmak/">
+            <img src="~/SustainableTürkiyeFrontend/images/SDG-8.svg" asp-append-version="true" alt="İnsana Yakışır İş ve Ekonomik Büyüme">
+        </a>
+        <a href="http://www.surdurulebilirkalkinma.gov.tr/amaclari/surdurulebilir-sanayilesmeyi-yayginlastirmak-ve-yenilikciligi-gelistirmek/">
+            <img src="~/SustainableTürkiyeFrontend/images/SDG-9.svg" asp-append-version="true" alt="Sanayi, Yenilikçilik ve Altyapı">
+        </a>
+        <a href="http://www.surdurulebilirkalkinma.gov.tr/hedefler/ulkelerin-icinde-ve-arasinda-bulunan-esitsizlikleri-azaltmak/">
+            <img src="~/SustainableTürkiyeFrontend/images/SDG-10.svg" asp-append-version="true" alt="Eşitsizliklerin Azaltılması">
+        </a>
+        <a href="http://www.surdurulebilirkalkinma.gov.tr/hedefler/sehirleri-ve-yerlesim-yerlerini-kapsayici-guvenli-dayanikli-ve-surdurulebilir-hale-getirmek/">
+            <img src="~/SustainableTürkiyeFrontend/images/SDG-11.svg" asp-append-version="true" alt="Sürdürülebilir Şehirler ve Topluluklar">
+        </a>
+        <a href="http://www.surdurulebilirkalkinma.gov.tr/hedefler/surdurulebilir-tuketim-ve-uretim-modellerini-temin-etmek/">
+            <img src="~/SustainableTürkiyeFrontend/images/SDG-12.svg" asp-append-version="true" alt="Sorumlu Üretim ve Tüketim">
+        </a>
+        <a href="http://www.surdurulebilirkalkinma.gov.tr/hedefler/iklim-degisikligi-ve-etkileri-ile-mucadele-etmek-icin-acil-olarak-harekete-gecmek/">
+            <img src="~/SustainableTürkiyeFrontend/images/SDG-13.svg" asp-append-version="true" alt="İklim Eylemi">
+        </a>
+        <a href="http://www.surdurulebilirkalkinma.gov.tr/hedefler/surdurulebilir-kalkinma-icin-okyanuslari-denizleri-ve-deniz-kaynaklarini-muhafaza-etmek-ve-surdurulebilir-kullanmak/">
+            <img src="~/SustainableTürkiyeFrontend/images/SDG-14.svg" asp-append-version="true" alt="Sudaki Yaşam">
+        </a>
+        <a href="http://www.surdurulebilirkalkinma.gov.tr/amaclari/karasal-ekosistemleri-korumak-yenilemek-ve-surdurulebilir-kullanimini-tesvik-etmek/">
+            <img src="~/SustainableTürkiyeFrontend/images/SDG-15.svg" asp-append-version="true" alt="Karasal Yaşam">
+        </a>
+        <a href="http://www.surdurulebilirkalkinma.gov.tr/hedefler/herkesin-adalete-erisimini-saglamak-ve-her-seviyede-etkili-hesap-verebilir-ve-kapsayici-kurumlar-kurulmasi/">
+            <img src="~/SustainableTürkiyeFrontend/images/SDG-16.svg" asp-append-version="true" alt="Barış, Adalet ve Güçlü Kurumlar">
+        </a>
+        <a href="http://www.surdurulebilirkalkinma.gov.tr/hedefler/uygulama-araclarini-kuvvetlendirmek-ve-surdurulebilir-kalkinma-icin-kuresel-isbirligine-canlilik-kazandirmak/">
+            <img src="~/SustainableTürkiyeFrontend/images/SDG-17.svg" asp-append-version="true" alt="Amaçlar İçin Ortaklıklar">
+        </a>
+    </div>
+</section>
+<!-- Sürdürülebilir Kalkınma Amaçları Son -->
 
 <!-- Slider CSS -->
 <style>

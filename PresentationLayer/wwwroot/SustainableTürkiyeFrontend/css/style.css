@@ -106,7 +106,10 @@
         color: black;
         font-size: 1.2em;
     }
-    
+    .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+    }
     
     /*header son*/
     /*section 1 başla*/

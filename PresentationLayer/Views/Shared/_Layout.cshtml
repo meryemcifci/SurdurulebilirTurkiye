@@ -7,42 +7,106 @@
     <link rel="stylesheet" href="@Url.Content("~/lib/bootstrap/dist/css/bootstrap.min.css")" />
     <link rel="stylesheet" href="@Url.Content("~/css/site.css")" />
     <link rel="stylesheet" href="@Url.Content("~/PresentationLayer.styles.css")" />
+    <link rel="stylesheet" href="~/SustainableTürkiyeFrontend/css/style.css">
 
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Sürdürülebilir Türkiye</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <!-- Logo olarak resim eklenmesi ve anasayfaya yönlendirme -->
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/logo.png" alt="Sürdürülebilir Türkiye" height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Anasayfa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">Hakkımızda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="News" asp-action="Index">Haberler</a>
+                        </li>
+
+                        <!-- Hizmetler Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Hizmetler
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                                <li><a class="dropdown-item" asp-controller="Services" asp-action="Surdurulebilirlik">Sürdürülebilirlik Duyarlı Ürünler</a></li>
+                                <li><a class="dropdown-item" asp-controller="Services" asp-action="CevreDostuPlastikler">Çevre Dostu Plastikler</a></li>
+                                <li><a class="dropdown-item" asp-controller="Services" asp-action="NeredeGeriDonusturebilirim">Nerede Geri Dönüştürebilirim?</a></li>
+                                <li><a class="dropdown-item" asp-controller="Services" asp-action="KarbonAyakIzi">Karbon Ayak İzim Ne Kadar?</a></li>
+                                <li><a class="dropdown-item" asp-controller="Services" asp-action="SuKaynaklari">Su Kaynaklarını Koruyalım</a></li>
+                                <li><a class="dropdown-item" asp-controller="Services" asp-action="BolgeselEkonomi">Bölgesel Ekonomiye Katkı</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">İletişim</a>
                         </li>
                         <partial name="_LoginPartial" />
                     </ul>
                 </div>
+
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - Sürdürülebilir Türkiye - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-left">
+                <img src="~/SustainableTürkiyeFrontend/images/turkeyFooter.svg" alt="Türkiye Haritası">
+                <p>TÜBİTAK 2209-A - 2024 Yeşil Yaşam</p>
+                <p>Made with lots of ❤️ in Türkiye</p>
+            </div>
+            <div class="footer-middle">
+                <h3>Hizmetler</h3>
+                <ul>
+                    <li><a href="#">Sürdürülebilirlik Duyarlı Ürünler</a></li>
+                    <li><a href="#">Çevre Dostu Plastikler</a></li>
+                    <li><a href="#">Nerede Geri Dönüştürebilirim?</a></li>
+                    <li><a href="#">Karbon Ayak İzim Ne Kadar?</a></li>
+                    <li><a href="#">Su Kaynaklarını Koruyalım</a></li>
+                    <li><a href="#">Bölgesel Ekonomiye Katkı</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <h3>Kurumsal</h3>
+                <ul>
+                    <li><a href="#">Yardım</a></li>
+                    <li><a href="#">İletişim</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Hakkımızda</a></li>
+                </ul>
+            </div>
         </div>
-    </footer> 
+        <div class="footer-bottom">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Data & Security</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
