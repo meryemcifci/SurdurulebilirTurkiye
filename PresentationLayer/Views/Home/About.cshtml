@@ -3,6 +3,69 @@
     ViewData["Title"] = "About";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımızda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
 
-<h1>About</h1>
-<h1>bu sayfa homecontrollerda bulunan about actionuna aittir.</h1>
+        .header {
+            background-color: #eaf8e6;
+            padding: 10px 0;
+            font-weight: bold;
+            color: #3d9b3d;
+            font-size: 18px;
+        }
+
+        .subtext {
+            color: gray;
+            margin: 10px 0 30px;
+            font-size: 14px;
+        }
+
+        .section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .title {
+            font-weight: bold;
+            color: red;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">HAKKIMIZDA</div>
+    <p class="subtext">TÜBİTAK 2209A projesi kapsamında sürdürülebilir bir gelecek için çalışıyoruz.</p>
+
+    <div class="section">
+        <div class="title">Misyonumuz</div>
+        <p>Türkiye'de sorumlu üretim ve tüketim uygulamalarının benimsenmesini ve teşvik edilmesini sağlayarak, doğal kaynakların sürdürülebilir bir şekilde yönetilmesini ve olumsuz çevresel etkilerin minimize edilmesini sağlamak.</p>
+        <p>Atık üretimini azaltmak, kaynak verimliliğini artırmak, yeşil teknolojilerin benimsenmesini teşvik etmek ve sosyal sorumluluk bilincini geliştirmek suretiyle yeşil ekonominin gelişimine katkıda bulunmak.</p>
+        <p>Bu amaçlara ulaşmak için, tüm işlevselliklerin hayata geçirilmek üzere tek elden takibinin yapılabileceği bir uygulama tasarlamak ve sunmak.</p>
+    </div>
+
+    <div class="section">
+        <div class="title">Vizyonumuz</div>
+        <p>Uluslararası sürdürülebilirlik standartlarına uygun, Türkiye'nin çevresel ve ekonomik sürdürülebilirliğine önemli bir katkı sağlayacak bir platform oluşturmak.</p>
+        <p>Farklı paydaşları bir araya getirerek, sürdürülebilir kalkınma yolunda Türkiye'ye öncülük etmek.</p>
+        <p>Gelecek nesiller için daha yaşanabilir bir dünya bırakmak.</p>
+    </div>
+</body>
+</html>

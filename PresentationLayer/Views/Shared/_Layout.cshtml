@@ -77,12 +77,12 @@
             <div class="footer-middle">
                 <h3>Hizmetler</h3>
                 <ul>
-                    <li><a href="#">Sürdürülebilirlik Duyarlı Ürünler</a></li>
-                    <li><a href="#">Çevre Dostu Plastikler</a></li>
-                    <li><a href="#">Nerede Geri Dönüştürebilirim?</a></li>
-                    <li><a href="#">Karbon Ayak İzim Ne Kadar?</a></li>
-                    <li><a href="#">Su Kaynaklarını Koruyalım</a></li>
-                    <li><a href="#">Bölgesel Ekonomiye Katkı</a></li>
+                    <li><a class="dropdown-item" asp-controller="Services" asp-action="Surdurulebilirlik">Sürdürülebilirlik Duyarlı Ürünler</a></li>
+                    <li><a class="dropdown-item" asp-controller="Services" asp-action="CevreDostuPlastikler">Çevre Dostu Plastikler</a></li>
+                    <li><a class="dropdown-item" asp-controller="Services" asp-action="NeredeGeriDonusturebilirim">Nerede Geri Dönüştürebilirim?</a></li>
+                    <li><a class="dropdown-item" asp-controller="CarbonFootprint" asp-action="Calculator">Karbon Ayak İzim Ne Kadar?</a></li>
+                    <li><a class="dropdown-item" asp-controller="Services" asp-action="SuKaynaklari">Su Kaynaklarını Koruyalım</a></li>
+                    <li><a class="dropdown-item" asp-controller="Services" asp-action="BolgeselEkonomi">Bölgesel Ekonomiye Katkı</a></li>
                 </ul>
             </div>
             <div class="footer-right">
@@ -91,7 +91,9 @@
                     <li><a href="#">Yardım</a></li>
                     <li><a href="#">İletişim</a></li>
                     <li><a href="#">Blog</a></li>
-                    <li><a href="#">Hakkımızda</a></li>
+                    <li>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">Hakkımızda</a>
+                    </li>
                 </ul>
             </div>
         </div>
