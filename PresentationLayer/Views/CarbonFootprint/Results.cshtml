@@ -1,0 +1,64 @@
+﻿@model EntityLayer.Concrete.CarbonFootprintCalculation
+@{
+    ViewData["Title"] = "Karbon Ayak İzi Sonuçları";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <h2 class="text-center text-success">@ViewData["Title"]</h2>
+
+    <div class="card mb-4">
+        <div class="card-header bg-success text-white">
+            <h4>Toplam Karbon Ayak İzi Sonuçlarınız</h4>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-info text-center">
+                <h3>@Model.TotalFootprint.ToString("F2") kg CO2</h3>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h5>Elektrik</h5>
+                    <p>Tüketim: @Model.ElectricityConsumption kWh</p>
+                    <p>Kaynak: @Model.ElectricitySource</p>
+                </div>
+
+                <div class="col-md-6">
+                    <h5>Doğalgaz</h5>
+                    <p>Tüketim: @Model.NaturalGasConsumption m³</p>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h5>Araç</h5>
+                    <p>Yakıt Tüketimi: @Model.CarFuelConsumption Lt</p>
+                    <p>Yakıt Tipi: @Model.CarFuelType</p>
+                </div>
+
+                <div class="col-md-6">
+                    <h5>Diğer Emisyonlar</h5>
+                    <p>@Model.OtherEmissions kg CO2</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-6">
+                    <a asp-action="Download" asp-route-id="@Model.FootprintId" class="btn btn-primary btn-block">Sonuçları İndir</a>
+                </div>
+                <div class="col-6">
+                    <a asp-action="Share" asp-route-id="@Model.FootprintId" class="btn btn-info btn-block">Sonuçları Paylaş</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <a asp-action="Calculator" class="btn btn-secondary mr-2">Yeni Hesaplama</a>
+        <a asp-action="History" class="btn btn-outline-success">Geçmiş Hesaplamalar</a>
+    </div>
+</div>
+
+

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<EntityLayer.Concrete.CarbonFootprintCalculation>
+@{
+    ViewData["Title"] = "Hesaplama Geçmişi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2 class="text-center text-success">@ViewData["Title"]</h2>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            <p>Henüz bir karbon ayak izi hesaplaması yapmadınız.</p>
+            <a asp-action="Calculator" class="btn btn-primary mt-2">Hesaplama Yap</a>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Tarih</th>
+                        <th>Elektrik</th>
+                        <th>Doğalgaz</th>
+                        <th>Araç</th>
+                        <th>Toplam</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.CalculationDate.ToShortDateString()</td>
+                            <td>@item.ElectricityConsumption kWh</td>
+                            <td>@item.NaturalGasConsumption m³</td>
+                            <td>@item.CarFuelConsumption Lt (@item.CarFuelType)</td>
+                            <td>@item.TotalFootprint.ToString("F2") kg CO2</td>
+                            <td>
+                                <div class="btn-group">
+                                    <a asp-action="Results" asp-route-id="@item.FootprintId" class="btn btn-sm btn-primary">Görüntüle</a>
+                                    <a asp-action="Download" asp-route-id="@item.FootprintId" class="btn btn-sm btn-secondary">İndir</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-center mt-3">
+            <a asp-action="Calculator" class="btn btn-success">Yeni Hesaplama</a>
+        </div>
+    }
+</div>
+
+

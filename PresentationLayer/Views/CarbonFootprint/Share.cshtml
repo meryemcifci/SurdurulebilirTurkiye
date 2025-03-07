@@ -1,0 +1,51 @@
+﻿@model EntityLayer.Concrete.CarbonFootprintCalculation
+@{
+    ViewData["Title"] = "Sonuçları Paylaş";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2 class="text-center text-success">@ViewData["Title"]</h2>
+
+    <div class="card">
+        <div class="card-header bg-info text-white">
+            <h4>Karbon Ayak İzi Sonuçlarınızı Paylaşın</h4>
+        </div>
+        <div class="card-body">
+            <p>Aşağıdaki bağlantıyı kullanarak hesaplama sonuçlarınızı başkalarıyla paylaşabilirsiniz:</p>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="shareUrl" value="@ViewBag.ShareUrl" readonly>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" onclick="copyShareUrl()">Kopyala</button>
+                </div>
+            </div>
+
+            <div class="alert alert-success mt-3" id="copySuccess" style="display:none;">
+                Bağlantı başarıyla kopyalandı!
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="text-center">
+                <a asp-action="Results" asp-route-id="@Model.FootprintId" class="btn btn-secondary">Sonuçlara Geri Dön</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function copyShareUrl() {
+            var copyText = document.getElementById("shareUrl");
+            copyText.select();
+            document.execCommand("copy");
+
+            var successAlert = document.getElementById("copySuccess");
+            successAlert.style.display = "block";
+
+            setTimeout(function() {
+                successAlert.style.display = "none";
+            }, 2000);
+        }
+    </script>
+}

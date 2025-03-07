@@ -3,6 +3,226 @@
     ViewData["Title"] = "KarbonAyakIzi";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@* 
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">Karbon Ayak İzi Hesapla:</h2>
 
-<h1>KarbonAyakIzi</h1>
+            <div class="text-center mb-4">
+                <h3>Birlikte Yeşile</h3>
+                <h3 style="color: #7FBC41;"><strong>Birlikte Geleceğe!</strong></h3>
+            </div>
 
+            <div style="color: #7FBC41; font-weight: bold;">Karbon Ayak İzi Nedir?</div>
+            <p class="mb-4">
+                Karbon ayak izi, kişisel veya kurumsal günlük faaliyetleri sonucu atmosfere salınan toplam karbondioksit
+                (CO2) ve diğer sera gazı emisyonlarının miktarı ifade eder. Enerji kullanımından ulaşım alışkanlıklarına, beslenme
+                tercihlerinden yaptığımız alışverişlere kadar birçok faktör karbon ayak izi etkiler.
+            </p>
+
+            <div class="mb-4">
+                <div style="color: #7FBC41; font-weight: bold;">⚡ Çevresel Etki:</div>
+                <p>Yüksek karbon ayak izi, küresel ısınmaya ve iklim değişikliğine katkıda bulunarak doğal yaşam alanlarını ve ekosistemlerini tehdit eder.</p>
+
+                <div style="color: #7FBC41; font-weight: bold;">🌍 Bireysel Sorumluluk:</div>
+                <p>Karbon ayak izini ölçerek, farkındalık yaratarak ve bu izi azaltarak sürdürülebilir bir geleceğe katkı sağlayabilirsiniz. Günlük alışkanlıklarınızı gözden geçirerek karbon ayak izini düşürebilir ve ayak izlerinizi azaltabilirsiniz.</p>
+
+                <div style="color: #7FBC41; font-weight: bold;">📊 Ölçüm Yapmanın Önemi:</div>
+                <p>Enerji tüketimi ve sürdürülebilir alışkanlıklar benimseyerek enerji ve maliyet tasarrufu sağlayabilirsiniz.</p>
+
+                <div style="color: #7FBC41; font-weight: bold;">🌱 Düşük Karbon Etkisi:</div>
+                <p>Karbon ayak izinizi azaltarak gezegenimizin geleceğini görmece adım atabilir ve doğal kaynakların korunmasına katkı sağlayabilirsiniz.</p>
+            </div>
+
+            <p class="mb-4">
+                Kendi karbon ayak izinizi azaltmak, bireysel ve kurumsal düzeyde çevresel sorumlulukların yerine
+                getirilmesi ve daha sürdürülebilir bir gelecek için atılacak güçlü bir adımdır. Karbon ayak izi hesaplama
+                aracımızı kullanarak çevreye olan etkilerinizi ölçün ve en iyi adımları belirleyin.
+            </p>
+
+            <div class="text-center mb-4">
+                <h4 style="color: #7FBC41;">Karbon Ayak İzi Hesaplama Aracı</h4>
+            </div>
+
+            <form asp-action="HesaplaKarbon" asp-controller="KarbonHesaplama" method="post">
+                <div class="row mb-4">
+                    <div class="col">
+                        <button type="button" class="btn btn-outline-success w-100 category-btn" data-category="Elektrik">Elektrik</button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-outline-success w-100 category-btn" data-category="Dogalgaz">Doğalgaz</button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-outline-success w-100 category-btn" data-category="Diger">Diğer</button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-outline-success w-100 category-btn" data-category="Araba">Araba</button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-outline-success w-100 category-btn" data-category="Toplam">Toplam</button>
+                    </div>
+                </div>
+
+                <div id="formContent" class="mt-4">
+                    <!-- Form içeriği JavaScript ile dinamik olarak buraya yüklenecek -->
+                </div>
+            </form>
+
+            <div class="text-center mt-5">
+                <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-link mx-2">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button type="button" class="btn btn-link mx-2">
+                        <i class="fas fa-home"></i>
+                    </button>
+                    <button type="button" class="btn btn-link mx-2">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button type="button" class="btn btn-link mx-2">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Kategori butonlarına tıklama olayı
+            $('.category-btn').click(function() {
+                var category = $(this).data('category');
+
+                // Aktif buton stili
+                $('.category-btn').removeClass('active').addClass('btn-outline-success');
+                $(this).removeClass('btn-outline-success').addClass('active btn-success');
+
+                // Seçilen kategoriye göre formu yükle
+                loadForm(category);
+            });
+
+            function loadForm(category) {
+                var formContent = $('#formContent');
+
+                // Formun içeriğini temizle
+                formContent.empty();
+
+                // Kategori bazlı form içeriği
+                switch(category) {
+                    case 'Elektrik':
+                        formContent.html(`
+                            <div class="form-group mb-3">
+                                <label for="elektrikTuketim">Aylık Elektrik Tüketimi (kWh)</label>
+                                <input type="number" class="form-control" id="elektrikTuketim" name="ElektrikTuketim" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="elektrikKaynak">Elektrik Kaynağı</label>
+                                <select class="form-control" id="elektrikKaynak" name="ElektrikKaynak">
+                                    <option value="1">Fosil Yakıt</option>
+                                    <option value="0.5">Karma (Yenilenebilir + Fosil)</option>
+                                    <option value="0.1">Tamamen Yenilenebilir</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-success w-100 mt-3">Hesapla</button>
+                        `);
+                        break;
+                    case 'Dogalgaz':
+                        formContent.html(`
+                            <div class="form-group mb-3">
+                                <label for="dogalgazTuketim">Aylık Doğalgaz Tüketimi (m³)</label>
+                                <input type="number" class="form-control" id="dogalgazTuketim" name="DogalgazTuketim" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="evYalitim">Ev Yalıtım Durumu</label>
+                                <select class="form-control" id="evYalitim" name="EvYalitim">
+                                    <option value="1.5">Kötü Yalıtım</option>
+                                    <option value="1">Orta Düzey Yalıtım</option>
+                                    <option value="0.7">İyi Yalıtım</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-success w-100 mt-3">Hesapla</button>
+                        `);
+                        break;
+                    case 'Araba':
+                        formContent.html(`
+                            <div class="form-group mb-3">
+                                <label for="arabaYakitTip">Yakıt Tipi</label>
+                                <select class="form-control" id="arabaYakitTip" name="ArabaYakitTip">
+                                    <option value="benzin">Benzin</option>
+                                    <option value="dizel">Dizel</option>
+                                    <option value="lpg">LPG</option>
+                                    <option value="elektrik">Elektrik</option>
+                                    <option value="hibrit">Hibrit</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="arabaKm">Aylık Ortalama Km</label>
+                                <input type="number" class="form-control" id="arabaKm" name="ArabaKm" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="yakitTuketim">Ortalama Yakıt Tüketimi (100 km'de)</label>
+                                <input type="number" step="0.1" class="form-control" id="yakitTuketim" name="YakitTuketim" required>
+                            </div>
+                            <button type="submit" class="btn btn-success w-100 mt-3">Hesapla</button>
+                        `);
+                        break;
+                    case 'Diger':
+                        formContent.html(`
+                            <div class="form-group mb-3">
+                                <label for="beslenmeStil">Beslenme Stili</label>
+                                <select class="form-control" id="beslenmeStil" name="BeslenmeStil">
+                                    <option value="2">Et Ağırlıklı</option>
+                                    <option value="1.5">Dengeli</option>
+                                    <option value="1">Vejetaryen</option>
+                                    <option value="0.8">Vegan</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="geriDonusum">Geri Dönüşüm Alışkanlıkları</label>
+                                <select class="form-control" id="geriDonusum" name="GeriDonusum">
+                                    <option value="1.2">Hiç Yapmıyorum</option>
+                                    <option value="1">Bazen Yapıyorum</option>
+                                    <option value="0.8">Düzenli Yapıyorum</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="alisveris">Alışveriş Alışkanlıkları</label>
+                                <select class="form-control" id="alisveris" name="Alisveris">
+                                    <option value="1.5">Çok Fazla Yeni Ürün Alırım</option>
+                                    <option value="1">Dengeli</option>
+                                    <option value="0.7">Minimalist, Genelde İkinci El Tercih Ederim</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-success w-100 mt-3">Hesapla</button>
+                        `);
+                        break;
+                    case 'Toplam':
+                        formContent.html(`
+                            <div class="alert alert-success">
+                                <h5 class="text-center">Toplam Karbon Ayak İzi Sonuçlarınız</h5>
+                                <div id="sonuclar">
+                                    <p>Hesaplama yapmak için lütfen önce diğer kategorileri doldurun.</p>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <button type="button" class="btn btn-outline-success" id="pdfIndir">
+                                    <i class="fas fa-download"></i> Sonuçları İndir
+                                </button>
+                                <button type="button" class="btn btn-outline-primary" id="paylas">
+                                    <i class="fas fa-share-alt"></i> Sonuçları Paylaş
+                                </button>
+                            </div>
+                        `);
+                        break;
+                }
+            }
+
+            // Sayfa yüklendiğinde varsayılan olarak Elektrik kategorisini göster
+            $('.category-btn[data-category="Elektrik"]').click();
+        });
+    </script>
+}
+ *@

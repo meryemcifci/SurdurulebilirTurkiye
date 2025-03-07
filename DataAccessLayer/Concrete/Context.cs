@@ -31,6 +31,7 @@ namespace SürdürülebilirTürkiye.DataAccessLayer
         public DbSet<SustainabilityGoal> SustainabilityGoals { get; set; }
         public DbSet<WaterManagementStrategy> WaterManagementStrategies { get; set; }
         public DbSet<WaterSource> WaterSources { get; set; }
+        public DbSet<CarbonFootprintCalculation> CarbonFootprintCalculations { get; set; }
 
     }
 }

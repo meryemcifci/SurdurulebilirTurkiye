@@ -5,7 +5,7 @@ using EntityLayer;
 using EntityLayer.Concrete;
 using System;
 using SürdürülebilirTürkiye.DataAccessLayer;
-
+using BussinesLayer.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // DbContext
@@ -17,7 +17,6 @@ builder.Services.AddControllersWithViews();
 // Identity
 builder.Services.AddIdentity<User, Role>(options =>
 {
-
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequiredLength = 8;
     options.Password.RequireUppercase = false;
@@ -28,14 +27,27 @@ builder.Services.AddIdentity<User, Role>(options =>
     options.SignIn.RequireConfirmedPhoneNumber = false;
 
 })
+    
     .AddEntityFrameworkStores<Context>()
     .AddDefaultTokenProviders();
 
+// Add CarbonFootprint service
+builder.Services.AddScoped<ICarbonFootprintService, CarbonFootprintService>();
 
 var app = builder.Build();
 
+// Environment-based configuration
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
+}
 
-app.UseAuthentication();
+// Correct middleware order
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
+app.UseAuthentication(); // Only once
 app.UseAuthorization();
 
 // Rolleri ve admin kullanýcýsýný oluþtur
@@ -67,13 +79,6 @@ using (var scope = app.Services.CreateScope())
         await userManager.AddToRoleAsync(adminUser, "Admin");
     }
 }
-app.UseRouting();
-
-app.UseAuthentication();  
-app.UseAuthorization();
-
-app.UseStaticFiles();
-
 
 app.UseEndpoints(endpoints =>
 {
@@ -81,7 +86,6 @@ app.UseEndpoints(endpoints =>
         name: "areas",
         pattern: "{area:exists}/{controller=AdminDashboard}/{action=Index}/{id?}"
     );
-
     endpoints.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}"

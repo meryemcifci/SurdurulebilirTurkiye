@@ -1,0 +1,133 @@
+﻿@model PresentationLayer.ViewModels.CarbonFootprintViewModel
+
+@{
+    ViewData["Title"] = "Karbon Ayak İzi Hesaplama Aracı";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <h2 class="text-center text-success">@ViewData["Title"]</h2>
+
+    <form asp-action="Calculate" method="post">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="nav nav-tabs" id="calculatorTabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="electricity-tab" data-toggle="tab" href="#electricity" role="tab">Elektrik</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="natural-gas-tab" data-toggle="tab" href="#naturalGas" role="tab">Doğalgaz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="car-tab" data-toggle="tab" href="#car" role="tab">Araba</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="other-tab" data-toggle="tab" href="#other" role="tab">Diğer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="total-tab" data-toggle="tab" href="#total" role="tab">Toplam</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tab-content mt-3">
+            <!-- Elektrik Tab -->
+            <div class="tab-pane fade show active" id="electricity" role="tabpanel">
+                <div class="form-group">
+                    <label asp-for="ElectricityConsumption">Aylık Elektrik Tüketimi (kWh)</label>
+                    <input asp-for="ElectricityConsumption" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ElectricitySource">Elektrik Kaynağı</label>
+                    <select asp-for="ElectricitySource" class="form-control">
+                        @foreach (var source in Model.ElectricitySources)
+                        {
+                            <option value="@source">@source</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="text-right">
+                    <button type="button" class="btn btn-primary" onclick="$('#natural-gas-tab').tab('show')">İleri</button>
+                </div>
+            </div>
+
+            <!-- Doğalgaz Tab -->
+            <div class="tab-pane fade" id="naturalGas" role="tabpanel">
+                <div class="form-group">
+                    <label asp-for="NaturalGasConsumption">Aylık Doğalgaz Tüketimi (m³)</label>
+                    <input asp-for="NaturalGasConsumption" class="form-control" />
+                </div>
+
+                <div class="text-right">
+                    <button type="button" class="btn btn-secondary" onclick="$('#electricity-tab').tab('show')">Geri</button>
+                    <button type="button" class="btn btn-primary" onclick="$('#car-tab').tab('show')">İleri</button>
+                </div>
+            </div>
+
+            <!-- Araba Tab -->
+            <div class="tab-pane fade" id="car" role="tabpanel">
+                <div class="form-group">
+                    <label asp-for="CarFuelConsumption">Aylık Yakıt Tüketimi (Lt)</label>
+                    <input asp-for="CarFuelConsumption" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CarFuelType">Yakıt Tipi</label>
+                    <select asp-for="CarFuelType" class="form-control">
+                        @foreach (var fuelType in Model.FuelTypes)
+                        {
+                            <option value="@fuelType">@fuelType</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="text-right">
+                    <button type="button" class="btn btn-secondary" onclick="$('#natural-gas-tab').tab('show')">Geri</button>
+                    <button type="button" class="btn btn-primary" onclick="$('#other-tab').tab('show')">İleri</button>
+                </div>
+            </div>
+
+            <!-- Diğer Tab -->
+            <div class="tab-pane fade" id="other" role="tabpanel">
+                <div class="form-group">
+                    <label asp-for="OtherEmissions">Diğer Emisyon Kaynakları (kg CO2)</label>
+                    <input asp-for="OtherEmissions" class="form-control" />
+                    <small class="form-text text-muted">Uçak seyahatleri, atıklar ve diğer emisyonlar için tahmini değer.</small>
+                </div>
+
+                <div class="text-right">
+                    <button type="button" class="btn btn-secondary" onclick="$('#car-tab').tab('show')">Geri</button>
+                    <button type="button" class="btn btn-primary" onclick="$('#total-tab').tab('show')">İleri</button>
+                </div>
+            </div>
+
+            <!-- Toplam Tab -->
+            <div class="tab-pane fade" id="total" role="tabpanel">
+                <div class="alert alert-info">
+                    <p>Hesaplama yapmak için lütfen önce diğer kategorileri doldurun.</p>
+                    <p>Tüm bilgileri doldurduktan sonra "Hesapla" butonuna tıklayarak karbon ayak izi sonuçlarınızı görebilirsiniz.</p>
+                </div>
+
+                <div class="text-right">
+                    <button type="button" class="btn btn-secondary" onclick="$('#other-tab').tab('show')">Geri</button>
+                    <button type="submit" class="btn btn-success">Hesapla</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        $(function () {
+            $('#calculatorTabs a').on('click', function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            });
+        });
+    </script>
+}

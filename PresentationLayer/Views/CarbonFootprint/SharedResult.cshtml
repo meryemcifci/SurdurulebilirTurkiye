@@ -1,0 +1,70 @@
+﻿@model EntityLayer.Concrete.CarbonFootprintCalculation
+@{
+    ViewData["Title"] = "Paylaşılan Karbon Ayak İzi Sonuçları";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <h2 class="text-center text-success">@ViewData["Title"]</h2>
+
+    <div class="card">
+        <div class="card-header bg-info text-white">
+            <h4>Paylaşılan Sonuçlar</h4>
+            <p class="mb-0">Hesaplama Tarihi: @Model.CalculationDate.ToShortDateString()</p>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-info text-center">
+                <h3>Toplam Karbon Ayak İzi: @Model.TotalFootprint.ToString("F2") kg CO2</h3>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-header">Elektrik</div>
+                        <div class="card-body">
+                            <p>Tüketim: @Model.ElectricityConsumption kWh</p>
+                            <p>Kaynak: @Model.ElectricitySource</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-header">Doğalgaz</div>
+                        <div class="card-body">
+                            <p>Tüketim: @Model.NaturalGasConsumption m³</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-header">Araç</div>
+                        <div class="card-body">
+                            <p>Yakıt Tüketimi: @Model.CarFuelConsumption Lt</p>
+                            <p>Yakıt Tipi: @Model.CarFuelType</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-header">Diğer Emisyonlar</div>
+                        <div class="card-body">
+                            <p>@Model.OtherEmissions kg CO2</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="text-center">
+                <a asp-action="Calculator" class="btn btn-primary">Kendi Karbon Ayak İzinizi Hesaplayın</a>
+            </div>
+        </div>
+    </div>
+</div>
+
