@@ -6,6 +6,7 @@ using EntityLayer.Concrete;
 using System;
 using SürdürülebilirTürkiye.DataAccessLayer;
 using BussinesLayer.Services;
+using DataAccessLayer.Seeds;
 var builder = WebApplication.CreateBuilder(args);
 
 // DbContext
@@ -91,5 +92,20 @@ app.UseEndpoints(endpoints =>
         pattern: "{controller=Home}/{action=Index}/{id?}"
     );
 });
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        SeedData.Initialize(services);
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "Seed data eklenirken bir hata oluþtu.");
+    }
+}
+
 
 app.Run();

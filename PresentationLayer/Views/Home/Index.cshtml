@@ -8,7 +8,7 @@
     <div class="slider">
         <div class="slide active">
             <img src="~/SustainableTürkiyeFrontend/images/bg1.jpg" asp-append-version="true" alt="Slide 2">
-            <div class="caption">Doğa Dostu Çözümler Burada</div>
+            <div class="caption">Türkiyenin Sürdürülebilir Üretim ve Tüketim Uygulamalarının Benimsenmesi ve Teşvik Edilmesi</div>
         </div>
         <div class="slide">
             <img src="~/SustainableTürkiyeFrontend/images/5.jpg" asp-append-version="true" alt="Slide 1">
@@ -80,7 +80,67 @@
     </div>
 </section>
 <!-- Sürdürülebilir Kalkınma Amaçları Son -->
+<!-- Haberler / Blog Yazıları -->
+<section class="news-section">
+    <h2>HABERLER</h2>
+    <div class="news-grid">
+        <div class="news-card">
+            <img src="~/SustainableTürkiyeFrontend/images/1.jpg" alt="Haber 1">
+            <h3>BM Dünya Meteoroloji Örgütü: 2023 yılında neredeyse tüm Avrupa'da…</h3>
+            <p>BM meteoroloji ajansı Pazartesi günü yaptığı açıklamada, iklim değişikliği şoklarının 2023 yılında Avrupa'da yaygın sel ve şiddetli sıcak hava dalgaları ile milyonlarca insanın rekor düzeyde zorluklarla karşı karşıya kalmasına neden olduğunu ve bunun…</p>
+            <a href="#" class="read-more">Devamı</a>
+        </div>
+        <div class="news-card">
+            <img src="~/SustainableTürkiyeFrontend/images/2.webp" alt="Haber 2">
+            <h3>Türkiye ve Dünya Bankası arasında yeşil gelecek için güçlü işbirliği</h3>
+            <p>Türkiye'nin sürdürülebilir kalkınma hedeflerine katkıda bulunacak beş yıllık ekonomik işbirliği programı yürürlüğe girdi. Türkiye ve Dünya Bankası, sürdürülebilir büyümeyi hedefleyen ve yeşil dönüşüme odaklanan beş…</p>
+            <a href="#" class="read-more">Devamı</a>
+        </div>
+        <div class="news-card">
+            <img src="~/SustainableTürkiyeFrontend/images/3.jpg" alt="Haber 3">
+            <h3>Sürdürülebilir enerjiye geçişte tüketicilerin rolü: Farkında mıyız…</h3>
+            <p>EY (Ernst & Young) Türkiye'nin raporu ışığında, tüketici davranışlarının sürdürülebilir enerji dönüşümündeki rolü ve enerji şirketlerinin bu süreçteki etkisi ele alınıyor.</p>
+            <a href="#" class="read-more">Devamı</a>
+        </div>
+    </div>
+    <div class="allNews">
+        <a class="nav-link text-dark" asp-area="" asp-controller="News" asp-action="Index">Haberlerin devamı için tıklayınız.</a>
+    </div>
+</section>
 
+<!-- İletişim Formu -->
+<section class="contact-section">
+    <h2>İLETİŞİM</h2>
+    <form class="contact-form">
+        <div class="form-group">
+            <div class="form-field">
+                <label for="first-name">İsim</label>
+                <input type="text" id="first-name" name="first-name">
+            </div>
+            <div class="form-field">
+                <label for="last-name">Soyisim</label>
+                <input type="text" id="last-name" name="last-name">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-field">
+                <label for="phone">Telefon Numarası</label>
+                <input type="text" id="phone" name="phone" placeholder="+90">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-field">
+                <label for="message">Mesaj</label>
+                <textarea id="message" name="message" rows="4" placeholder="Mesajınızı yazınız..."></textarea>
+            </div>
+        </div>
+        <button type="submit" class="submit-btn">Mesaj Gönder</button>
+    </form>
+</section>
 <!-- Slider CSS -->
 <style>
     .slider-container {

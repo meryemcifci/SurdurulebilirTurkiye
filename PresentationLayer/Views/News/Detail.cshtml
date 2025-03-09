@@ -1,0 +1,65 @@
+﻿@model EntityLayer.Concrete.NewsArticle
+@{
+    ViewData["Title"] = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8">
+            <!-- Haber Detayı -->
+            <div class="card mb-4">
+                <img src="@Model.ImageUrl" class="card-img-top img-fluid" alt="@Model.Title">
+                <div class="card-body">
+                    <h1 class="card-title">@Model.Title</h1>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="text-muted">Yazar: @Model.Author</span>
+                        <span class="text-muted">@Model.PublishedDate.ToString("dd MMMM yyyy, HH:mm")</span>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(Model.Tags))
+                    {
+                        <div class="mb-3">
+                            <span class="badge badge-primary">@Model.Tags</span>
+                        </div>
+                    }
+
+                    <div class="card-text mt-4">
+                        @Html.Raw(Model.Content)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <!-- İlgili Haberler -->
+            <div class="card">
+                <div class="card-header">
+                    <h5>İlgili Haberler</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.RelatedNews != null && Model.RelatedNews.Any())
+                    {
+                        <ul class="list-group list-group-flush">
+                            @foreach (var relatedNews in Model.RelatedNews)
+                            {
+                                <li class="list-group-item">
+                                    <a href="/News/Detail/@relatedNews.NewsID">@relatedNews.Title</a>
+                                    <small class="d-block text-muted">
+                                        @relatedNews.PublishedDate.ToString("dd.MM.yyyy")
+                                    </small>
+                                </li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <p>İlgili haber bulunamadı.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
