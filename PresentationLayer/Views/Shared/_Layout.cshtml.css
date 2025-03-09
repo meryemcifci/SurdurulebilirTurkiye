@@ -37,3 +37,14 @@ button.accept-policy {
   font-size: 1rem;
   line-height: inherit;
 }
+
+.dropdown-item:active,
+.dropdown-item:focus {
+    background-color: #e5b0b2 !important;
+    color: white !important;
+}
+
+.dropdown-item:hover {
+    background-color: #fcfcfc !important;
+    color: black !important;
+}
