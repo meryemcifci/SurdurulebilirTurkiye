@@ -40,8 +40,8 @@ button.accept-policy {
 
 .dropdown-item:active,
 .dropdown-item:focus {
-    background-color: #e5b0b2 !important;
     color: white !important;
+    background-color: #fcfcfc !important;
 }
 
 .dropdown-item:hover {

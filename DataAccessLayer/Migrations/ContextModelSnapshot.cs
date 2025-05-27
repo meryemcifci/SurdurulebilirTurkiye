@@ -40,7 +40,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("AboutID");
 
-                    b.ToTable("Abouts");
+                    b.ToTable("Abouts", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.CarbonFootprintCalculation", b =>
@@ -83,7 +83,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("FootprintId");
 
-                    b.ToTable("CarbonFootprintCalculations");
+                    b.ToTable("CarbonFootprintCalculations", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.CarbonFootprintCategory", b =>
@@ -114,7 +114,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CarbonFootprintCategories");
+                    b.ToTable("CarbonFootprintCategories", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.CarEmission", b =>
@@ -155,7 +155,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("CarEmissions");
+                    b.ToTable("CarEmissions", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.City", b =>
@@ -181,7 +181,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("CityID");
 
-                    b.ToTable("Cities");
+                    b.ToTable("Cities", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Contact", b =>
@@ -229,7 +229,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Contacts");
+                    b.ToTable("Contacts", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.ElectricityCalculation", b =>
@@ -267,7 +267,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ElectricityCalculations");
+                    b.ToTable("ElectricityCalculations", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.EnvironmentalImpact", b =>
@@ -310,7 +310,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("ProductID");
 
-                    b.ToTable("EnvironmentalImpacts");
+                    b.ToTable("EnvironmentalImpacts", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.HomepageBanner", b =>
@@ -348,7 +348,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("HomepageBanners");
+                    b.ToTable("HomepageBanners", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.NaturalGasCalculation", b =>
@@ -391,7 +391,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("NaturalGasCalculations");
+                    b.ToTable("NaturalGasCalculations", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.News", b =>
@@ -436,7 +436,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("News");
+                    b.ToTable("News", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.NewsArticle", b =>
@@ -475,7 +475,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("NewsArticles");
+                    b.ToTable("NewsArticles", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Plastic", b =>
@@ -509,7 +509,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("PlasticID");
 
-                    b.ToTable("Plastics");
+                    b.ToTable("Plastics", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.PlasticAlternative", b =>
@@ -538,7 +538,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("PlasticID");
 
-                    b.ToTable("PlasticAlternatives");
+                    b.ToTable("PlasticAlternatives", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Producer", b =>
@@ -570,7 +570,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("ProducerID");
 
-                    b.ToTable("Producers");
+                    b.ToTable("Producers", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Product", b =>
@@ -614,7 +614,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("ProducerID");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.RecyclingContainer", b =>
@@ -640,7 +640,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("CityID");
 
-                    b.ToTable("RecyclingContainers");
+                    b.ToTable("RecyclingContainers", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Role", b =>
@@ -688,7 +688,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SocialMediaLinks");
+                    b.ToTable("SocialMediaLinks", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.SupportProgram", b =>
@@ -716,7 +716,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SupportPrograms");
+                    b.ToTable("SupportPrograms", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.SustainabilityGoal", b =>
@@ -741,7 +741,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SustainabilityGoals");
+                    b.ToTable("SustainabilityGoals", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.User", b =>
@@ -838,7 +838,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("WaterManagementStrategies");
+                    b.ToTable("WaterManagementStrategies", (string)null);
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.WaterSource", b =>
@@ -872,7 +872,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("WaterSources");
+                    b.ToTable("WaterSources", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

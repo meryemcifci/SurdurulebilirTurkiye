@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,11 @@ namespace EntityLayer.Concrete
         public string ContainerLocation { get; set; }
         public string ContainerType { get; set; }
 
-        public int CityID { get; set; } // Foreign Key
-        public City City { get; set; } 
+        [ForeignKey("City")]
+        public int CityID { get; set; } 
+       
+
+
+
     }
 }
