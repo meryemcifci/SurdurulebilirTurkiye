@@ -1,5 +1,6 @@
-﻿
-
+﻿container-fluid {
+    background-color: #f0f8f0 !important;
+}
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -48,3 +49,4 @@ button.accept-policy {
     background-color: #fcfcfc !important;
     color: black !important;
 }
+

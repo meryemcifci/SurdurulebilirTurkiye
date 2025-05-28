@@ -1,0 +1,146 @@
+﻿
+@{
+ViewData["Title"] = "Index";
+Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="css/games.css" rel="stylesheet">
+<div class="games-container">
+   
+    <div class="container">
+        <h1 class="text-center page-title">Oyunlar</h1>
+
+        <div class="row justify-content-center">
+            <!-- Carbon Footprint Game -->
+            <div class="col-lg-4 col-md-6 mb-5">
+                <div class="card game-card">
+                    <div class="floating-icon">🌍</div>
+                    <img src="/images/CarbonFootprint.jpg"
+                    alt="Karbon Ayak İzi Oyunu" class="game-image">
+                    <div class="card-body">
+                        <h5 class="game-title">Karbon Ayak İzi Oyunu</h5>
+                        <p class="game-description">
+                            Çevresel farkındalık oyunu! Günlük yaşamda karbon ayak izinizi azaltın ve
+                            dünyamızı korumak için bilinçli seçimler yapın. 🌱
+                        </p>
+                        <a href="@Url.Action("CarbonFootprint", "Game")" class="btn play-btn w-100">
+                            Oyna
+                        </a>
+                       @*  <div class="game-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">4.8</div>
+                                <div>⭐ Puan</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">1.2K</div>
+                                <div>👥 Oyuncu</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">15</div>
+                                <div>⏱️ Dakika</div>
+                            </div>
+                        </div> *@
+                    </div>
+                </div>
+            </div>
+
+            <!-- EcoQuiz Game -->
+            <div class="col-lg-4 col-md-6 mb-5">
+                <div class="card game-card">
+                    <div class="floating-icon">🌱</div>
+                    <img src="/images/ecoquiz.jpg" 
+                    alt="Eco Quiz Oyunu" class="game-image">
+                    <div class="card-body">
+                        <h5 class="game-title">Eco Quiz</h5>
+                        <p class="game-description">
+                            Çevre bilinci ile dolu quiz oyunu! Doğa ve sürdürülebilirlik hakkında
+                            bilginizi test edin ve çevre dostu bir yaşam tarzı benimseyin! 🌿
+                        </p>
+                        <a href="@Url.Action("EcoQuiz", "Game")" class="btn play-btn w-100">
+                            Oyna
+                        </a>
+                        @* <div class="game-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">4.7</div>
+                                <div>⭐ Puan</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">890</div>
+                                <div>👥 Oyuncu</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">10</div>
+                                <div>⏱️ Dakika</div>
+                            </div>
+                        </div> *@
+                    </div>
+                </div>
+            </div>
+
+            <!-- RecyclingGame Game -->
+            <div class="col-lg-4 col-md-6 mb-5">
+                <div class="card game-card">
+                    <div class="floating-icon">♻️</div>
+                    <img src="/images/recycling.jpg" 
+                    alt="Geri Dönüşüm Oyunu" class="game-image">
+                    <div class="card-body">
+                        <h5 class="game-title">Geri Dönüşüm Oyunu</h5>
+                        <p class="game-description">
+                            Atıkları doğru kutulara atın! Geri dönüşüm kurallarını öğrenin ve
+                            çevreyi korumak için doğru seçimler yapın. Eğlenceli ve öğretici! ♻️
+                        </p>
+                        <a href="@Url.Action("RecyclingGame", "Game")" class="btn play-btn w-100">
+                             Oyna
+                        </a>
+                        @* <div class="game-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">4.5</div>
+                                <div>⭐ Puan</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">1.3K</div>
+                                <div>👥 Oyuncu</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">7</div>
+                                <div>⏱️ Dakika</div>
+                            </div>
+                        </div> *@
+                    </div>
+                </div>
+            </div>
+
+            <!-- TrueOrFalse Game -->
+            <div class="col-lg-4 col-md-6 mb-5">
+                <div class="card game-card">
+                    <div class="floating-icon">✅</div>
+                    <img src="/images/trueorfalse.jpg" 
+                    alt="Doğru Yanlış Oyunu" class="game-image">
+                    <div class="card-body">
+                        <h5 class="game-title">Doğru mu Yanlış mı?</h5>
+                        <p class="game-description">
+                            Hızlı karar verme oyunu! Çevre ve sürdürülebilirlik ile ilgili
+                            ifadelerin doğru ya da yanlış olduğunu belirleyin. Zaman yarışı! ⏰
+                        </p>
+                        <a href="@Url.Action("TrueOrFalse", "Game")" class="btn play-btn w-100">
+                             Oyna
+                        </a>
+                       @*  <div class="game-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">4.8</div>
+                                <div>⭐ Puan</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">1.7K</div>
+                                <div>👥 Oyuncu</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">5</div>
+                                <div>⏱️ Dakika</div>
+                            </div>
+                        </div> *@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

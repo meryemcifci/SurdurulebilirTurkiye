@@ -1,1 +1,47 @@
-<!doctype html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><title>eco-personality-quiz</title><script defer="defer" src="/js/chunk-vendors.efeb5625.js"></script><script defer="defer" src="/js/app.885aff22.js"></script><link href="/css/app.167168aa.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but eco-personality-quiz doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div></body></html>
+<!doctype html>
+<html lang="">
+<head>
+    <base href="/games/eco-personality-quiz/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="/favicon.ico">
+    <title>eco-personality-quiz</title>
+    <link href="css/app.167168aa.css" rel="stylesheet">
+    <script src="js/chunk-vendors.efeb5625.js"></script>
+    <script src="js/app.885aff22.js"></script>
+
+</head>
+    <!--<noscript><strong>We're sorry but eco-personality-quiz doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div>-->
+
+    <body>
+        <div class="container">
+            <!-- Intro Screen -->
+            <div id="intro" class="intro-screen">
+                <h1>🌿 Eco Quiz Oyunu</h1>
+                <p>Çevre bilinci ile dolu quiz oyunu!</p>
+                <button onclick="startGame()">🎮 Oyunu Başlat</button>
+            </div>
+
+            <!-- Game Screen -->
+            <div id="game" class="hidden">
+                <div class="question">
+                    <h2 id="questionText"></h2>
+                    <div id="options" class="options"></div>
+                </div>
+            </div>
+
+            <!-- Result Screen -->
+            <div id="result" class="hidden result">
+                <h2>🎉 Oyun Bitti!</h2>
+                <div class="score" id="finalScore"></div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar"></div>
+                </div>
+                <div class="feedback" id="feedback"></div>
+                <button onclick="restartGame()">🔄 Tekrar Oyna</button>
+                <button onclick="NewGame()">🚀 Yeni Oyun Oyna</button>
+            </div>
+        </div>
+    </body>
+</html>

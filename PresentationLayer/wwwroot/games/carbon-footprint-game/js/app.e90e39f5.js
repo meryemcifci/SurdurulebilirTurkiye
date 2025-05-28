@@ -1,2 +1,135 @@
-(function(){"use strict";var t={1446:function(t,e,n){var r=n(6848),o=function(){var t=this,e=t._self._c;return e("div",{attrs:{id:"app"}},[e("h1",[t._v("Karbon Ayak İzi Tahmin Oyunu")]),e("CarbonQuiz")],1)},s=[],i=function(){var t=this,e=t._self._c;return t.showIntro?e("div",{staticClass:"intro-screen"},[e("h1",[t._v("Doğayı Koru Oyunu 🌿")]),e("p",[t._v("Doğru seçimler yap, puan topla ve doğayı mutlu et! 🌍")]),e("button",{on:{click:t.startGame}},[t._v("Başla")])]):e("div",{staticClass:"quiz"},[t.gameFinished?t._e():e("h2",[t._v(t._s(t.currentQuestion.question))]),t.gameFinished?e("div",[e("h3",[t._v("Skorun: "+t._s(t.totalScore)+" / "+t._s(t.maxScore))]),e("div",{staticClass:"progress-bar"},[e("div",{staticClass:"progress-fill",style:{width:t.progressPercentage+"%",backgroundColor:t.progressColor}})]),e("p",{staticClass:"feedback"},[t._v(t._s(t.feedbackMessage))])]):e("div",t._l(t.currentQuestion.options,(function(n,r){return e("div",{key:r},[e("button",{on:{click:function(e){return t.selectAnswer(n.score)}}},[t._v(" "+t._s(n.text)+" ")])])})),0)])},a=[];n(8111),n(1701),n(8237);const u=[{question:"Bugün okula nasıl gittin?",options:[{text:"Yürüyerek",score:5},{text:"Otobüsle",score:3},{text:"Arabayla",score:0}]},{question:"Bugün ne yedin?",options:[{text:"Etli yemek",score:1},{text:"Sebze",score:5},{text:"Dışarıdan sipariş",score:3}]},{question:"Bugün ne kadar su içtin?",options:[{text:"1-2 bardak",score:0},{text:"3-5 bardak",score:1},{text:"6+ bardak",score:2}]},{question:"Bugün ışıkları kapatmayı unuttun mu?",options:[{text:"Evet",score:0},{text:"Hayır",score:3}]},{question:"Bugün geri dönüşüm yaptın mı?",options:[{text:"Evet",score:3},{text:"Hayır",score:0}]},{question:"Bugün kaç saat bilgisayar kullandın?",options:[{text:"1 saatten az",score:4},{text:"1-3 saat",score:2},{text:"3 saatten fazla",score:0}]},{question:"Bugün çevreye çöp attın mı?",options:[{text:"Hayır",score:5},{text:"Evet",score:0}]},{question:"Bugün sebze veya meyve tükettin mi?",options:[{text:"Evet",score:2},{text:"Hayır",score:0}]},{question:"Bugün plastik kullandın mı?",options:[{text:"Evet",score:0},{text:"Hayır",score:3}]},{question:"Bugün yürüyüş yaptın mı?",options:[{text:"Evet",score:2},{text:"Hayır",score:0}]}];var c={components:{},data(){return{showIntro:!0,selectedQuestions:[],currentIndex:0,totalScore:0,maxScore:25,gameFinished:!1}},computed:{currentQuestion(){return this.selectedQuestions[this.currentIndex]},progressPercentage(){return Math.min(100,Math.round(this.totalScore/this.maxScore*100))},progressColor(){return this.totalScore<=5?"F44336":this.totalScore<=15?"#FFC107":"#4CAF50"},feedbackMessage(){return this.totalScore>=.75*this.maxScore?"Harikasın! Doğayı koruyorsun 🌿":this.totalScore>=.5*this.maxScore?"Fena değil ama dikkatli olmalısın 🌍":"Karbon ayak izin yüksek, doğaya daha duyarlı olmalısın 🌪️"}},methods:{startGame(){this.showIntro=!1,this.shuffleAndPickQuestions()},selectAnswer(t){this.totalScore+=t,this.currentIndex<this.selectedQuestions.length-1?this.currentIndex++:this.gameFinished=!0},shuffleAndPickQuestions(){const t=u.sort((()=>.5-Math.random()));this.selectedQuestions=t.slice(0,5),this.maxScore=this.selectedQuestions.reduce(((t,e)=>{const n=Math.max(...e.options.map((t=>t.score)));return t+n}),0)}},created(){this.shuffleAndPickQuestions()}},l=c,d=n(1656),p=(0,d.A)(l,i,a,!1,null,null,null),f=p.exports,h={name:"App",components:{CarbonQuiz:f}},v=h,m=(0,d.A)(v,o,s,!1,null,null,null),x=m.exports;r.Ay.config.productionTip=!1,new r.Ay({render:t=>t(x)}).$mount("#app")}},e={};function n(r){var o=e[r];if(void 0!==o)return o.exports;var s=e[r]={exports:{}};return t[r].call(s.exports,s,s.exports,n),s.exports}n.m=t,function(){var t=[];n.O=function(e,r,o,s){if(!r){var i=1/0;for(l=0;l<t.length;l++){r=t[l][0],o=t[l][1],s=t[l][2];for(var a=!0,u=0;u<r.length;u++)(!1&s||i>=s)&&Object.keys(n.O).every((function(t){return n.O[t](r[u])}))?r.splice(u--,1):(a=!1,s<i&&(i=s));if(a){t.splice(l--,1);var c=o();void 0!==c&&(e=c)}}return e}s=s||0;for(var l=t.length;l>0&&t[l-1][2]>s;l--)t[l]=t[l-1];t[l]=[r,o,s]}}(),function(){n.n=function(t){var e=t&&t.__esModule?function(){return t["default"]}:function(){return t};return n.d(e,{a:e}),e}}(),function(){n.d=function(t,e){for(var r in e)n.o(e,r)&&!n.o(t,r)&&Object.defineProperty(t,r,{enumerable:!0,get:e[r]})}}(),function(){n.g=function(){if("object"===typeof globalThis)return globalThis;try{return this||new Function("return this")()}catch(t){if("object"===typeof window)return window}}()}(),function(){n.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)}}(),function(){var t={524:0};n.O.j=function(e){return 0===t[e]};var e=function(e,r){var o,s,i=r[0],a=r[1],u=r[2],c=0;if(i.some((function(e){return 0!==t[e]}))){for(o in a)n.o(a,o)&&(n.m[o]=a[o]);if(u)var l=u(n)}for(e&&e(r);c<i.length;c++)s=i[c],n.o(t,s)&&t[s]&&t[s][0](),t[s]=0;return n.O(l)},r=self["webpackChunkcarbon_footprint_game"]=self["webpackChunkcarbon_footprint_game"]||[];r.forEach(e.bind(null,0)),r.push=e.bind(null,r.push.bind(r))}();var r=n.O(void 0,[504],(function(){return n(1446)}));r=n.O(r)})();
-//# sourceMappingURL=app.e90e39f5.js.map
+
+const questions = [
+{
+    question: "Bugün okula/işe nasıl gittin?",
+options: [
+{text: "🚶 Yürüyerek", score: 5 },
+{text: "🚌 Toplu taşıma", score: 3 },
+{text: "🚗 Özel araç", score: 0 }
+]
+        },
+{
+    question: "Bugün ana öğününde ne yedin?",
+options: [
+{text: "🥩 Et yemeği", score: 1 },
+{text: "🥗 Sebze yemeği", score: 5 },
+{text: "🍕 Hazır yemek", score: 2 }
+]
+        },
+{
+    question: "Evde ışıkları söndürmeyi unutuyor musun?",
+options: [
+{text: "😔 Sık sık unutuyorum", score: 0 },
+{text: "🤔 Bazen unutuyorum", score: 2 },
+{text: "😊 Hep söndürüyorum", score: 5 }
+]
+        },
+{
+    question: "Geri dönüşüm yapıyor musun?",
+options: [
+{text: "♻️ Düzenli yapıyorum", score: 5 },
+{text: "🤷 Arada yapıyorum", score: 2 },
+{text: "❌ Yapmıyorum", score: 0 }
+]
+        },
+{
+    question: "Su kullanımında nasıl davranıyorsun?",
+options: [
+{text: "💧 Çok dikkatli kullanıyorum", score: 5 },
+{text: "💦 Orta düzeyde dikkatli", score: 3 },
+{text: "🚿 Pek dikkat etmiyorum", score: 0 }
+]
+        }
+];
+
+let currentQuestion = 0;
+let totalScore = 0;
+let maxScore = 25;
+
+function startGame() {
+    document.getElementById('intro').classList.add('hidden');
+    document.getElementById('game').classList.remove('hidden');
+    currentQuestion = 0;
+    totalScore = 0;
+    showQuestion();
+}
+
+
+function showQuestion() {
+    if (currentQuestion >= questions.length) {
+        showResult();
+        return;
+    }
+
+    const question = questions[currentQuestion];
+    document.getElementById('questionText').textContent = question.question;
+
+    const optionsDiv = document.getElementById('options');
+    optionsDiv.innerHTML = '';
+            
+    question.options.forEach(option => {
+        const button = document.createElement('button');
+        button.textContent = option.text;
+        button.onclick = () => selectAnswer(option.score);
+    optionsDiv.appendChild(button);
+    });
+}
+
+function selectAnswer(score) {
+    totalScore += score;
+    currentQuestion++;
+    showQuestion();
+}
+
+function showResult() {
+    document.getElementById('game').classList.add('hidden');
+    document.getElementById('result').classList.remove('hidden');
+
+    const percentage = Math.round((totalScore / maxScore) * 100);
+    document.getElementById('finalScore').textContent = `${totalScore} / ${maxScore} Puan`;
+
+    const progressBar = document.getElementById('progressBar');
+    progressBar.style.width = percentage + '%';
+
+let message, color;
+    if (percentage >= 80) {
+        message = "🌟 Harika! Çevre dostu bir yaşam sürüyorsunuz!";
+        color = "#4CAF50";
+    } else if (percentage >= 60) {
+        message = "👍 İyi! Biraz daha dikkat ederseniz mükemmel olur!";
+        color = "#FFC107";
+    } else {
+        message = "🌍 Çevre için daha fazla çaba göstermelisiniz!";
+        color = "#F44336";
+    }        
+
+    progressBar.style.backgroundColor = color;
+    const feedbackDiv = document.getElementById('feedback');
+    feedbackDiv.textContent = message;
+    feedbackDiv.style.backgroundColor = color + '20';
+    feedbackDiv.style.color = color;
+}
+
+function restartGame() {
+    document.getElementById('result').classList.add('hidden');
+document.getElementById('intro').classList.remove('hidden');
+}
+function NewGame() {
+    document.body.style.opacity = '0';
+    setTimeout(() => {
+        Swal.fire({
+            title: 'Emin misiniz?',
+            text: "Oyunlar sayfasına dönmek istediğinizden emin misiniz?",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Evet, dön!',
+            cancelButtonText: 'İptal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '/Game/Index';
+            } else {
+                document.body.style.opacity = '1'; // İptal edilirse ekranı geri getir.....
+            }
+        });
+    }, 300); //gecikme süresi
+}

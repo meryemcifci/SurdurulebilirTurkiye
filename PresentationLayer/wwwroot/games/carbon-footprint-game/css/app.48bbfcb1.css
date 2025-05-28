@@ -1,1 +1,101 @@
-.quiz{background:#dffce4(233,243,232);padding:30px;border-radius:20px;max-width:500px;margin:40px auto;box-shadow:0 10px 30px rgba(0,0,0,.1);font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif}h2{font-size:24px;margin-bottom:20px}.intro-screen{background:#dffce4;text-align:center;padding:40px;border-radius:20px;margin:40px auto;max-width:500px;box-shadow:0 10px 30px rgba(0,0,0,.1);font-family:Comic Sans MS,cursive,sans-serif}.intro-screen h1{font-size:28px;color:#2e7d32}.intro-screen p{font-size:18px;margin:20px 0}.intro-screen button{background-color:#66bb6a;color:#fff;border:none;padding:15px 30px;font-size:18px;border-radius:12px;cursor:pointer;transition:transform .2s,background-color .3s}.intro-screen button:hover{background-color:#388e3c;transform:scale(1.05)}button{background-color:#64e468;color:#fff;border:none;margin:10px;padding:12px 24px;font-size:16px;border-radius:10px;cursor:pointer;transition:transform .2s,background-color .3s}button:hover{background-color:#45a049;transform:scale(1.05)}.feedback{margin-top:20px;font-size:18px;font-weight:500}.progress-bar{width:100%;height:20px;background-color:#eee;border-radius:10px;overflow:hidden;margin:20px 0}.progress-fill{height:100%;transition:width .5s ease-in-out}body{background-color:#fff;min-height:100vh;margin:0;padding:0}#app{font-family:Avenir,Helvetica,Arial,sans-serif;padding:20px;text-align:center}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #dffce4, #b8f7cc);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.intro-screen {
+    text-align: center;
+}
+
+.intro-screen h1 {
+    color: #2e7d32;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.intro-screen p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+button {
+    background: linear-gradient(45deg, #66bb6a, #4caf50);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;
+    min-width: 200px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+.question {
+    margin-bottom: 30px;
+}
+
+.question h2 {
+    color: #2e7d32;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.result {
+    text-align: center;
+}
+
+.score {
+    font-size: 2rem;
+    color: #2e7d32;
+    margin: 20px 0;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.progress-fill {
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+.feedback {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.hidden {
+    display: none;
+}

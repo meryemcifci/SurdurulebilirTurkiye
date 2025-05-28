@@ -3,218 +3,80 @@
     ViewData["Title"] = "Haberler";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@* <link href="~/sustainabletürkiyefrontend/css/news.css" rel="stylesheet" /> *@
-<style>
-    /* Genel Sayfa Tasarımı */
-    .container {
-        max-width: 1200px;
-        margin: auto;
-        padding: 20px;
-    }
+<link href="~/css/news.css" rel="stylesheet" /> 
 
-    /* Arama Çubuğu */
-    .search-bar {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
-    }
-
-    .search-form {
-        display: flex;
-        gap: 10px;
-    }
-
-    .search-input {
-        padding: 10px;
-        width: 300px;
-        border-radius: 8px;
-        border: 1px solid #ccc;
-        font-size: 16px;
-    }
-
-    .search-button {
-        padding: 10px 15px;
-        background: #a0e090;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background 0.3s ease;
-    }
-
-    .search-button:hover {
-        background: #a0e091;
-    }
-
-    /* Kategori Butonları */
-    .category-filters {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .category-btn {
-        text-decoration: none;
-        color: black;
-        padding: 10px 15px;
-        border-radius: 8px;
-        margin: 5px;
-        background: #f1f1f1;
-        transition: background 0.3s ease;
-    }
-
-        .category-btn:hover,
-        .category-btn.active {
-            background: #a0e090;
-            color: white;
-        }
-
-    /* Haber Grid Yapısı */
-    .news-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-    }
-
-    /* Haber Kartı */
-    .news-card {
-        background: white;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-        .news-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-        }
-
-    /* Haber Resmi */
-    .news-image {
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-        border-bottom: 3px solid #a0e090;
-    }
-
-    /* Haber İçeriği */
-    .news-content {
-        padding: 15px;
-    }
-
-    .news-title {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-
-    .news-text {
-        color: #555;
-    }
-
-    /* Haber Etiketleri */
-    .news-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 5px;
-        margin-bottom: 10px;
-    }
-
-    .tag {
-        background: #a0e090;
-        color: white;
-        padding: 5px 10px;
-        font-size: 12px;
-        border-radius: 5px;
-    }
-
-    /* Haber Alt Kısmı */
-    .news-footer {
-        padding: 10px 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #f9f9f9;
-        border-top: 1px solid #eee;
-    }
-
-    .news-date {
-        font-size: 14px;
-        color: #777;
-    }
-
-    .read-more {
-        text-decoration: none;
-        color: white;
-        background: #a0e090;
-        padding: 8px 12px;
-        border-radius: 6px;
-        transition: background 0.3s ease;
-    }
-
-    .read-more:hover {
-         background: #a0e091;
-            color: #fcfcfc;
-    }
-
-</style>
 <div class="container">
-    <div class="search-bar">
-        <form method="get" action="/News" class="search-form">
-            <input type="text" name="searchString" class="search-input"
-                   value="@ViewBag.CurrentSearch" placeholder="Haberlerde Ara">
-            <button type="submit" class="search-button">Ara</button>
-        </form>
-    </div>
+     <h1 class="text-center page-title">Haberler</h1>
+    <div class="news-wrapper">
+        <div class="search-bar">
+            <form method="get" action="/News" class="search-form">
+                <input type="text" name="searchString" class="search-input"
+                       value="@ViewBag.CurrentSearch" placeholder="🔍 Haberlerde Ara">
+                <button type="submit" class="search-button">Ara</button>
+            </form>
+        </div>
 
-    <div class="category-filters">
-        <a href="/News" class="category-btn @(string.IsNullOrEmpty(ViewBag.CurrentCategory) ? "active" : "")">Tümü</a>
-        @foreach (var category in ViewBag.Categories)
-        {
-            <a href="/News?category=@category"
-               class="category-btn @(ViewBag.CurrentCategory == category ? "active" : "")">
-                @category
+        <div class="category-filters">
+            <a href="/News" class="category-btn @(string.IsNullOrEmpty(ViewBag.CurrentCategory) ? "active" : "")">
+                 Tümü
             </a>
-        }
-    </div>
-
-    <div class="news-grid">
-        @if (!Model.LatestNews.Any())
-        {
-            <div class="no-news">
-                <h3>Henüz haber bulunmamaktadır.</h3>
-                <p>Daha sonra tekrar kontrol edin.</p>
-            </div>
-        }
-        else
-        {
-            @foreach (var news in Model.LatestNews)
+            @foreach (var category in ViewBag.Categories)
             {
-                <div class="news-card">
-                    @* @if (!string.IsNullOrEmpty(news.ImageUrl))
-                    {
-                        <img src="@news.ImageUrl" class="news-image" alt="@news.Title">
-                    } *@
-                    <div class="news-content">
-                        @if (!string.IsNullOrEmpty(news.Tags))
-                        {
-                            <div class="news-tags">
-                                @foreach (var tag in news.Tags.Split(','))
-                                {
-                                    <span class="tag">@tag.Trim()</span>
-                                }
-                            </div>
-                        }
-                        <h5 class="news-title">@news.Title</h5>
-                        <p class="news-text">@news.Content.Substring(0, Math.Min(100, news.Content.Length))...</p>
-                    </div>
-                    <div class="news-footer">
-                        <small class="news-date">@news.PublishedDate.ToString("dd MMMM yyyy")</small>
-                        <a href="/News/Detail/@news.Id" class="read-more">Devamını Oku</a>
-                    </div>
+                <a href="/News?category=@category"
+                   class="category-btn @(ViewBag.CurrentCategory == category ? "active" : "")">
+                    @category
+                </a>
+            }
+        </div>
+
+        <div class="news-grid">
+            @if (!Model.LatestNews.Any())
+            {
+                <div class="no-news">
+                    <h3> Henüz haber bulunmamaktadır</h3>
+                    <p>Yeni haberler için daha sonra tekrar kontrol edin.</p>
                 </div>
             }
-        }
+            else
+            {
+                @foreach (var news in Model.LatestNews)
+                {
+                    <div class="news-card">
+                        @* Eğer resim varsa göster *@
+                        @if (!string.IsNullOrEmpty(news.ImageUrl))
+                        {
+                            <img src="@news.ImageUrl" class="news-image" alt="@news.Title">
+                        }
+                        
+                        <div class="news-content">
+                            @if (!string.IsNullOrEmpty(news.Tags))
+                            {
+                                <div class="news-tags">
+                                    @foreach (var tag in news.Tags.Split(','))
+                                    {
+                                        <span class="tag">@tag.Trim()</span>
+                                    }
+                                </div>
+                            }
+                            <h5 class="news-title">@news.Title</h5>
+                            <p class="news-text">
+                                @(news.Content.Length > 120 ? 
+                                  news.Content.Substring(0, 120) + "..." : 
+                                  news.Content)
+                            </p>
+                        </div>
+                        
+                        <div class="news-footer">
+                            <small class="news-date">
+                                 @news.PublishedDate.ToString("dd MMMM yyyy")
+                            </small>
+                            <a href="/News/Detail/@news.Id" class="read-more">
+                                 Devamını Oku
+                            </a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
     </div>
 </div>

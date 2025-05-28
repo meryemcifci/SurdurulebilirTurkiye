@@ -113,10 +113,8 @@ font-size: 60px;
 .nav-item.dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0;
-}
-    
+}    
 /*header son*/
-
 /*section 1 başla*/
 .slider-container {
     position: relative;
@@ -160,7 +158,7 @@ font-size: 60px;
     font-size: 1.8rem;
     text-align: center;
     font-weight: bold;
-    max-width: 80%; /* Uzun metinler taşmasın */
+    max-width: 80%;/* Uzun metinler taşmasın */
 }
 
 
@@ -219,7 +217,7 @@ font-size: 60px;
     height: auto;
     border-radius: 5px;
 }
-    
+
 /*section 2 son*/
 /*section 3 başla*/
 .about-section {
@@ -277,8 +275,7 @@ font-size: 60px;
     line-height: 1.8;
     margin-bottom: 15px;
     font-weight: 300;
-}
-    
+}    
     
 /*section 3 son*/
 /*section 4 başla*/
@@ -551,5 +548,3 @@ font-size: 60px;
 .footer-legal a:hover {
     color: #333;
 }
-    
-/*FOOTER son*/
