@@ -1,0 +1,155 @@
+﻿@model EntityLayer.Concrete.Contact
+
+@{
+    ViewData["Title"] = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var isLoginRequired = TempData["LoginRequired"] != null;
+
+}
+
+<div class="container">
+    <h2>İletişim</h2>
+    
+    <!-- Login Required Alert -->
+    <div id="loginAlert" class="alert alert-warning" style="display: none;">
+        <strong>Uyarı!</strong> Mesaj gönderebilmek için önce giriş yapmalısınız. 
+        <span id="countdown">3</span> saniye sonra giriş sayfasına yönlendirileceksiniz...
+    </div>
+
+    <!-- Success Message -->
+    <div id="successAlert" class="alert alert-success" style="display: none;">
+        <strong>Başarılı!</strong> <span id="successMessage"></span>
+    </div>
+
+    <!-- Error Message -->
+    <div id="errorAlert" class="alert alert-danger" style="display: none;">
+        <strong>Hata!</strong> <span id="errorMessage"></span>
+    </div>
+
+    <!-- Contact Form -->
+    <form id="contactForm">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group mb-3">
+                    <label for="Name">Ad Soyad <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="Name" name="Name" required />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group mb-3">
+                    <label for="Email">E-posta <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control" id="Email" name="Email" required />
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group mb-3">
+                    <label for="PhoneNumber">Telefon</label>
+                    <input type="tel" class="form-control" id="PhoneNumber" name="PhoneNumber" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group mb-3">
+                    <label for="Subject">Konu <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="Subject" name="Subject" required />
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group mb-3">
+            <label for="Message">Mesaj <span class="text-danger">*</span></label>
+            <textarea class="form-control" id="Message" name="Message" rows="5" required></textarea>
+        </div>
+        
+        <button type="submit" id="sendBtn" class="btn btn-primary">
+            <span id="btnText">Mesaj Gönder</span>
+            <span id="btnSpinner" class="spinner-border spinner-border-sm d-none" role="status"></span>
+        </button>
+    </form>
+</div>
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Login kontrolü - TempData'dan kontrol et
+            @if (ViewBag.LoginRequired == true || TempData["LoginRequired"] != null)
+            {
+                <text>
+                $('#loginAlert').show();
+                var countdown = 3;
+                var countdownElement = $('#countdown');
+                
+                var timer = setInterval(function() {
+                    countdown--;
+                    countdownElement.text(countdown);
+                    
+                    if (countdown = 1) {
+                        clearInterval(timer);
+                        window.location.href = '/Account/Login';
+                    }
+                }, 3000);
+                </text>
+            }
+
+            // Form submit
+            $('#contactForm').on('submit', function(e) {
+                e.preventDefault();
+                
+                // Button durumunu değiştir
+                $('#btnText').hide();
+                $('#btnSpinner').removeClass('d-none');
+                $('#sendBtn').prop('disabled', true);
+                
+                // Alert'leri gizle
+                $('.alert').hide();
+                
+                // Form verilerini serialize et
+                var formData = $(this).serialize();
+                
+                // AJAX call
+                $.ajax({
+                    url: '@Url.Action("SendMessage", "Contact")',
+                    type: 'POST',
+                    data: formData,
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.success) {
+                            showSuccess(response.message || 'Mesajınız başarıyla iletildi!');
+                            $('#contactForm')[0].reset();
+                        } else {
+                            showError(response.message || 'Mesaj gönderilemedi.');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('AJAX Error:', error);
+                        console.error('Status:', status);
+                        console.error('Response Text:', xhr.responseText);
+                        showError('Bir hata oluştu. Lütfen tekrar deneyin.');
+                    },
+                    complete: function() {
+                        resetButton();
+                    }
+                });
+            });
+            
+            function showSuccess(message) {
+                $('#successMessage').text(message);
+                $('#successAlert').show();
+                $('html, body').animate({ scrollTop: 0 }, 500);
+            }
+            
+            function showError(message) {
+                $('#errorMessage').text(message);
+                $('#errorAlert').show();
+                $('html, body').animate({ scrollTop: 0 }, 500);
+            }
+            
+            function resetButton() {
+                $('#btnSpinner').addClass('d-none');
+                $('#btnText').show();
+                $('#sendBtn').prop('disabled', false);
+            }
+        });
+    </script>
+}

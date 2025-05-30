@@ -35,6 +35,8 @@ builder.Services.AddIdentity<User, Role>(options =>
 // Add CarbonFootprint service
 builder.Services.AddScoped<ICarbonFootprintService, CarbonFootprintService>();
 
+
+
 var app = builder.Build();
 
 // Environment-based configuration
