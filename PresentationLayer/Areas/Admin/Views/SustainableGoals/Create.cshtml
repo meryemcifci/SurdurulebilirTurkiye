@@ -1,0 +1,44 @@
+﻿@model EntityLayer.Concrete.SustainabilityGoal
+
+@{
+    ViewData["Title"] = "Yeni SKA Hedefi Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
+
+<form asp-action="Create" method="post" enctype="multipart/form-data" class="mt-4">
+    <div class="form-group">
+        <label asp-for="Title" class="control-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="IconImage">Resim Yükle</label>
+        <input type="file" name="IconImage" class="form-control" />
+    </div>
+
+    <!-- İsteğe bağlı olarak kullanıcıya gösterilecek yol -->
+    <div class="form-group">
+        <label asp-for="IconUrl" class="control-label">Resim Yolu</label>
+        <input asp-for="IconUrl" class="form-control" />
+        <span asp-validation-for="IconUrl" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
+</form>

@@ -70,12 +70,12 @@ using (var scope = app.Services.CreateScope())
     }
 
     // Admin kullanýcýsý oluþtur
-    if (await userManager.FindByEmailAsync("meryemcifcii06@gmail.com") == null)
+    if (await userManager.FindByEmailAsync("info.yesilyasam@gmail.com") == null)
     {
         var adminUser = new User
         {
-            UserName = "meryemcifcii06@gmail.com",
-            Email = "meryemcifcii06@gmail.com",
+            UserName = "info.yesilyasam@gmail.com",
+            Email = "info.yesilyasam@gmail.com",
             FullName = "Admin User"
         };
         await userManager.CreateAsync(adminUser, "Admin123!");
@@ -93,6 +93,7 @@ app.UseEndpoints(endpoints =>
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}"
     );
+
 });
 
 using (var scope = app.Services.CreateScope())

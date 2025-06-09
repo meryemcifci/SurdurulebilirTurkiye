@@ -73,18 +73,18 @@ font-size: 60px;
     align-items: center;
 }
     
-.nav-links {
+.nav-link {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
 }
     
-.nav-links li {
+.nav-link li {
     margin: 0 15px;
 }
     
-.nav-links a {
+.nav-link a {
     text-decoration: none;
     color: rgb(0, 0, 0);
     font-weight: bold;
@@ -218,9 +218,9 @@ font-size: 60px;
     border-radius: 5px;
 }
 
-/*section 2 son*/
-/*section 3 başla*/
-.about-section {
+    /*section 2 son*/
+    /*section 3 başla*/
+    .about-section {
     padding: 60px 20px;
     max-width: 1000px;
     background-color: white;

@@ -1,0 +1,51 @@
+﻿
+@model IEnumerable<EntityLayer.Concrete.SustainabilityGoal>
+
+@{
+    ViewData["Title"] = "Sürdürülebilir Kalkınma Amaçları";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-3">Sürdürülebilir Kalkınma Amaçları</h2>
+    <a asp-area="Admin" asp-controller="SustainableGoals" asp-action="Create" class="btn btn-success">Yeni Amaç Ekle</a>
+
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Resim</th>
+                <th>Başlık</th>
+                <th>Açıklama</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.IconUrl</td>
+                        <td>@item.Title</td>
+                        <td>@item.Description</td>
+                        <td>
+                            <a asp-area="Admin" asp-controller="SustainableGoals" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Düzenle</a>
+                            <a asp-area="Admin" asp-controller="SustainableGoals" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Sil</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5" class="text-center">Hiç veri bulunamadı.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+</div>
+

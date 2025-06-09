@@ -1,146 +1,86 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<EntityLayer.Concrete.SustainabilityGoal>
+@{
+    ViewData["Title"] = "Sürdürülebilir Kalkınma Amaçları";
 }
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link rel="stylesheet" href="~/SustainableTürkiyeFrontend/css/style.css">
+<style>
+    .goals-title {
+        padding: 2rem;
+        font-size: 2.5em;
+        text-align:center;
+        align-content:center;
+        color: #67a467;
+        margin-bottom: 40px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+ </style>
 <div class="totaly">
-<div class="slider-container">
-    <div class="slider">
-        <div class="slide active">
-            <img src="~/SustainableTürkiyeFrontend/images/bg1.jpg" asp-append-version="true" alt="Slide 2">
-            <div class="caption">Türkiyenin Sürdürülebilir Üretim ve Tüketim Uygulamalarının Benimsenmesi ve Teşvik Edilmesi</div>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide active">
+                <img src="~/SustainableTürkiyeFrontend/images/bg1.jpg" asp-append-version="true" alt="Slide 2">
+                <div class="caption">Türkiyenin Sürdürülebilir Üretim ve Tüketim Uygulamalarının Benimsenmesi ve Teşvik Edilmesi</div>
+            </div>
+            <div class="slide">
+                <img src="~/SustainableTürkiyeFrontend/images/5.jpg" asp-append-version="true" alt="Slide 1">
+                <div class="caption">Sürdürülebilir Geleceğe Adım Atın!</div>
+            </div>
+            <div class="slide">
+                <img src="~/SustainableTürkiyeFrontend/images/bg2.jpg" asp-append-version="true" alt="Slide 3">
+                <div class="caption">Geleceği Birlikte İnşa Edelim</div>
+            </div>
         </div>
-        <div class="slide">
-            <img src="~/SustainableTürkiyeFrontend/images/5.jpg" asp-append-version="true" alt="Slide 1">
-            <div class="caption">Sürdürülebilir Geleceğe Adım Atın!</div>
-        </div>
-        <div class="slide">
-            <img src="~/SustainableTürkiyeFrontend/images/bg2.jpg" asp-append-version="true" alt="Slide 3">
-            <div class="caption">Geleceği Birlikte İnşa Edelim</div>
-        </div>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
     </div>
-    <button class="prev">&#10094;</button>
-    <button class="next">&#10095;</button>
-</div>
-<!-- Sürdürülebilir Kalkınma Amaçları -->
-<section class="goals-section">
-    <h2>Türkiye’nin Sürdürülebilir Kalkınma Amaçları</h2>
-    <div class="goals-grid">
-        <a href="http://www.surdurulebilirkalkinma.gov.tr/amaclari/yoksulluga-son/">
-            <img src="~/SustainableTürkiyeFrontend/images/SDG-1.svg" asp-append-version="true" alt="Yoksulluğa Son">
-        </a>
-        <a href="http://www.surdurulebilirkalkinma.gov.tr/amaclari/acligi-bitirmek/">
-            <img src="~/SustainableTürkiyeFrontend/images/SDG-2.svg" asp-append-version="true" alt="Açlığa Son">
-        </a>
-        <a href="http://www.surdurulebilirkalkinma.gov.tr/amaclari/saglik-ve-refah/">
-            <img src="~/SustainableTürkiyeFrontend/images/SDG-3.svg" asp-append-version="true" alt="Sağlık ve Kaliteli Yaşam">
-        </a>
-        <a href="http://www.surdurulebilirkalkinma.gov.tr/amaclari/herkes-icin-kapsayici-ve-hakkaniyetli-egitim/">
-            <img src="~/SustainableTürkiyeFrontend/images/SDG-4.svg" asp-append-version="true" alt="Nitelikli Eğitim">
-        </a>
-        <a href="http://www.surdurulebilirkalkinma.gov.tr/hedefler/cinsiyet-esitligini-saglamak/">
-            <img src="~/SustainableTürkiyeFrontend/images/SDG-5.svg" asp-append-version="true" alt="Toplumsal Cinsiyet Eşitliği">
-        </a>
-        <a href="http://www.surdurulebilirkalkinma.gov.tr/hedefler/herkes-icin-su-ve-kanalizasyon-hizmetlerinin-ulasilabilirligi/">
-            <img src="~/SustainableTürkiyeFrontend/images/SDG-6.svg" asp-append-version="true" alt="Temiz Su ve Sanitasyon">
-        </a>
-        <a href="http://www.surdurulebilirkalkinma.gov.tr/hedefler/herkes-icin-surdurulebilir-ve-cagdas-enerjiye-erisimi-saglamak/">
-            <img src="~/SustainableTürkiyeFrontend/images/SDG-7.svg" asp-append-version="true" alt="Erişilebilir ve Temiz Enerji">
-        </a>
-        <a href="http://www.surdurulebilirkalkinma.gov.tr/hedefler/surdurulebilir-ekonomik-buyumeyi-tam-ve-uretken-istihdami-ve-insana-yakisir-isleri-yayginlastirmak/">
-            <img src="~/SustainableTürkiyeFrontend/images/SDG-8.svg" asp-append-version="true" alt="İnsana Yakışır İş ve Ekonomik Büyüme">
-        </a>
-        <a href="http://www.surdurulebilirkalkinma.gov.tr/amaclari/surdurulebilir-sanayilesmeyi-yayginlastirmak-ve-yenilikciligi-gelistirmek/">
-            <img src="~/SustainableTürkiyeFrontend/images/SDG-9.svg" asp-append-version="true" alt="Sanayi, Yenilikçilik ve Altyapı">
-        </a>
-        <a href="http://www.surdurulebilirkalkinma.gov.tr/hedefler/ulkelerin-icinde-ve-arasinda-bulunan-esitsizlikleri-azaltmak/">
-            <img src="~/SustainableTürkiyeFrontend/images/SDG-10.svg" asp-append-version="true" alt="Eşitsizliklerin Azaltılması">
-        </a>
-        <a href="http://www.surdurulebilirkalkinma.gov.tr/hedefler/sehirleri-ve-yerlesim-yerlerini-kapsayici-guvenli-dayanikli-ve-surdurulebilir-hale-getirmek/">
-            <img src="~/SustainableTürkiyeFrontend/images/SDG-11.svg" asp-append-version="true" alt="Sürdürülebilir Şehirler ve Topluluklar">
-        </a>
-        <a href="http://www.surdurulebilirkalkinma.gov.tr/hedefler/surdurulebilir-tuketim-ve-uretim-modellerini-temin-etmek/">
-            <img src="~/SustainableTürkiyeFrontend/images/SDG-12.svg" asp-append-version="true" alt="Sorumlu Üretim ve Tüketim">
-        </a>
-        <a href="http://www.surdurulebilirkalkinma.gov.tr/hedefler/iklim-degisikligi-ve-etkileri-ile-mucadele-etmek-icin-acil-olarak-harekete-gecmek/">
-            <img src="~/SustainableTürkiyeFrontend/images/SDG-13.svg" asp-append-version="true" alt="İklim Eylemi">
-        </a>
-        <a href="http://www.surdurulebilirkalkinma.gov.tr/hedefler/surdurulebilir-kalkinma-icin-okyanuslari-denizleri-ve-deniz-kaynaklarini-muhafaza-etmek-ve-surdurulebilir-kullanmak/">
-            <img src="~/SustainableTürkiyeFrontend/images/SDG-14.svg" asp-append-version="true" alt="Sudaki Yaşam">
-        </a>
-        <a href="http://www.surdurulebilirkalkinma.gov.tr/amaclari/karasal-ekosistemleri-korumak-yenilemek-ve-surdurulebilir-kullanimini-tesvik-etmek/">
-            <img src="~/SustainableTürkiyeFrontend/images/SDG-15.svg" asp-append-version="true" alt="Karasal Yaşam">
-        </a>
-        <a href="http://www.surdurulebilirkalkinma.gov.tr/hedefler/herkesin-adalete-erisimini-saglamak-ve-her-seviyede-etkili-hesap-verebilir-ve-kapsayici-kurumlar-kurulmasi/">
-            <img src="~/SustainableTürkiyeFrontend/images/SDG-16.svg" asp-append-version="true" alt="Barış, Adalet ve Güçlü Kurumlar">
-        </a>
-        <a href="http://www.surdurulebilirkalkinma.gov.tr/hedefler/uygulama-araclarini-kuvvetlendirmek-ve-surdurulebilir-kalkinma-icin-kuresel-isbirligine-canlilik-kazandirmak/">
-            <img src="~/SustainableTürkiyeFrontend/images/SDG-17.svg" asp-append-version="true" alt="Amaçlar İçin Ortaklıklar">
-        </a>
-    </div>
-</section>
-<!-- Sürdürülebilir Kalkınma Amaçları Son -->
-<!-- Haberler / Blog Yazıları -->
-<section class="news-section">
-    <h2>HABERLER</h2>
-    <div class="news-grid">
-        <div class="news-card">
-            <img src="~/SustainableTürkiyeFrontend/images/1.jpg" alt="Haber 1">
-            <h3>BM Dünya Meteoroloji Örgütü: 2023 yılında neredeyse tüm Avrupa'da…</h3>
-            <p>BM meteoroloji ajansı Pazartesi günü yaptığı açıklamada, iklim değişikliği şoklarının 2023 yılında Avrupa'da yaygın sel ve şiddetli sıcak hava dalgaları ile milyonlarca insanın rekor düzeyde zorluklarla karşı karşıya kalmasına neden olduğunu ve bunun…</p>
-            <a href="#" class="read-more">Devamı</a>
-        </div>
-        <div class="news-card">
-            <img src="~/SustainableTürkiyeFrontend/images/2.webp" alt="Haber 2">
-            <h3>Türkiye ve Dünya Bankası arasında yeşil gelecek için güçlü işbirliği</h3>
-            <p>Türkiye'nin sürdürülebilir kalkınma hedeflerine katkıda bulunacak beş yıllık ekonomik işbirliği programı yürürlüğe girdi. Türkiye ve Dünya Bankası, sürdürülebilir büyümeyi hedefleyen ve yeşil dönüşüme odaklanan beş…</p>
-            <a href="#" class="read-more">Devamı</a>
-        </div>
-        <div class="news-card">
-            <img src="~/SustainableTürkiyeFrontend/images/3.jpg" alt="Haber 3">
-            <h3>Sürdürülebilir enerjiye geçişte tüketicilerin rolü: Farkında mıyız…</h3>
-            <p>EY (Ernst & Young) Türkiye'nin raporu ışığında, tüketici davranışlarının sürdürülebilir enerji dönüşümündeki rolü ve enerji şirketlerinin bu süreçteki etkisi ele alınıyor.</p>
-            <a href="#" class="read-more">Devamı</a>
-        </div>
-    </div>
-    <div class="allNews">
-        <a class="nav-link text-dark" asp-area="" asp-controller="News" asp-action="Index">Haberlerin devamı için tıklayınız.</a>
-    </div>
-</section>
+    <!-- Sürdürülebilir Kalkınma Amaçları -->
+    <h2 class= "goals-title">BM Sürdürülebilir Kalkınma Amaçları</h2>
 
-<!-- İletişim Formu -->
-<section class="contact-section">
-    <h2>İLETİŞİM</h2>
-    <form class="contact-form">
-        <div class="form-group">
-            <div class="form-field">
-                <label for="first-name">İsim</label>
-                <input type="text" id="first-name" name="first-name">
+    <div class="d-flex flex-wrap gap-2">
+        @foreach (var goal in Model)
+        {
+            <div onclick="loadDescription(@goal.Id)" style="cursor: pointer; text-align: center;">
+                <img src="@goal.IconUrl" alt="@goal.Title" style="width: 100px; height: 100px;" />
+                @* <p>@goal.Title</p> *@
             </div>
-            <div class="form-field">
-                <label for="last-name">Soyisim</label>
-                <input type="text" id="last-name" name="last-name">
+        }
+    </div>
+
+  
+
+    <div id="goal-description">
+       @*  <p>Açıklama buraya yüklenecek...</p> *@
+    </div>
+    <!-- Sürdürülebilir Kalkınma Amaçları Son -->
+    <!-- Haberler / Blog Yazıları -->
+    <section class="news-section">
+        <h2>HABERLER</h2>
+        <div class="news-grid">
+            <div class="news-card">
+                <img src="~/SustainableTürkiyeFrontend/images/1.jpg" alt="Haber 1">
+                <h3>BM Dünya Meteoroloji Örgütü: 2023 yılında neredeyse tüm Avrupa'da…</h3>
+                <p>BM meteoroloji ajansı Pazartesi günü yaptığı açıklamada, iklim değişikliği şoklarının 2023 yılında Avrupa'da yaygın sel ve şiddetli sıcak hava dalgaları ile milyonlarca insanın rekor düzeyde zorluklarla karşı karşıya kalmasına neden olduğunu ve bunun…</p>
+                <a href="#" class="read-more">Devamı</a>
+            </div>
+            <div class="news-card">
+                <img src="~/SustainableTürkiyeFrontend/images/2.webp" alt="Haber 2">
+                <h3>Türkiye ve Dünya Bankası arasında yeşil gelecek için güçlü işbirliği</h3>
+                <p>Türkiye'nin sürdürülebilir kalkınma hedeflerine katkıda bulunacak beş yıllık ekonomik işbirliği programı yürürlüğe girdi. Türkiye ve Dünya Bankası, sürdürülebilir büyümeyi hedefleyen ve yeşil dönüşüme odaklanan beş…</p>
+                <a href="#" class="read-more">Devamı</a>
+            </div>
+            <div class="news-card">
+                <img src="~/SustainableTürkiyeFrontend/images/3.jpg" alt="Haber 3">
+                <h3>Sürdürülebilir enerjiye geçişte tüketicilerin rolü: Farkında mıyız…</h3>
+                <p>EY (Ernst & Young) Türkiye'nin raporu ışığında, tüketici davranışlarının sürdürülebilir enerji dönüşümündeki rolü ve enerji şirketlerinin bu süreçteki etkisi ele alınıyor.</p>
+                <a href="#" class="read-more">Devamı</a>
             </div>
         </div>
-        <div class="form-group">
-            <div class="form-field">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email">
-            </div>
-            <div class="form-field">
-                <label for="phone">Telefon Numarası</label>
-                <input type="text" id="phone" name="phone" placeholder="+90">
-            </div>
+        <div class="allNews">
+            <a class="nav-link text-dark" asp-area="" asp-controller="News" asp-action="Index">Haberlerin devamı için tıklayınız.</a>
         </div>
-        <div class="form-group">
-            <div class="form-field">
-                <label for="message">Mesaj</label>
-                <textarea id="message" name="message" rows="4" placeholder="Mesajınızı yazınız..."></textarea>
-            </div>
-        </div>
-        <button type="submit" class="submit-btn">Mesaj Gönder</button>
-    </form>
-</section>
+    </section>
 </div>
 <!-- Slider CSS -->
 <style>
@@ -244,4 +184,28 @@
 
         showSlide(currentSlide);
     });
+
+   //Sürdürülebilir Kalkınma Amaçları Açıklama Yükleme
+
+      
+     let currentDescriptionId = null;
+
+     function loadDescription(id) {
+         const descContainer = document.getElementById('goal-description');
+
+         // Aynı ID’ye tekrar tıklanırsa gizle
+         if (currentDescriptionId === id) {
+             descContainer.innerHTML = '';
+             currentDescriptionId = null;
+             return;
+         }
+          //yeni Id'ye tıklayınca içeriği değiştiriyorum.
+         fetch('/Home/GetDescription/' + id)
+             .then(response => response.text())
+             .then(html => {
+                 descContainer.innerHTML = html;
+                 currentDescriptionId = id;
+             });
+     }
+
 </script>
