@@ -4,18 +4,6 @@
 }
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link rel="stylesheet" href="~/SustainableTürkiyeFrontend/css/style.css">
-<style>
-    .goals-title {
-        padding: 2rem;
-        font-size: 2.5em;
-        text-align:center;
-        align-content:center;
-        color: #67a467;
-        margin-bottom: 40px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
- </style>
 <div class="totaly">
     <div class="slider-container">
         <div class="slider">
@@ -35,25 +23,22 @@
         <button class="prev">&#10094;</button>
         <button class="next">&#10095;</button>
     </div>
+    
     <!-- Sürdürülebilir Kalkınma Amaçları -->
     <h2 class= "goals-title">BM Sürdürülebilir Kalkınma Amaçları</h2>
-
     <div class="d-flex flex-wrap gap-2">
         @foreach (var goal in Model)
         {
             <div onclick="loadDescription(@goal.Id)" style="cursor: pointer; text-align: center;">
-                <img src="@goal.IconUrl" alt="@goal.Title" style="width: 100px; height: 100px;" />
-                @* <p>@goal.Title</p> *@
+                <img src="@goal.IconUrl" alt="@goal.Title" style="width: 150px; height: 150px;" />
             </div>
         }
     </div>
-
-  
-
     <div id="goal-description">
        @*  <p>Açıklama buraya yüklenecek...</p> *@
     </div>
-    <!-- Sürdürülebilir Kalkınma Amaçları Son -->
+
+
     <!-- Haberler / Blog Yazıları -->
     <section class="news-section">
         <h2>HABERLER</h2>
@@ -82,7 +67,7 @@
         </div>
     </section>
 </div>
-<!-- Slider CSS -->
+<!--CSS -->
 <style>
     .slider-container {
         position: relative;
@@ -151,9 +136,19 @@
         right: 10px;
     }
 
+    .goals-title {
+        padding: 2rem;
+        font-size: 2.5em;
+        text-align: center;
+        align-content: center;
+        color: #67a467;
+        margin-bottom: 40px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
 </style>
 
-<!-- Slider JavaScript -->
+<!-- JavaScript -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         let currentSlide = 0;

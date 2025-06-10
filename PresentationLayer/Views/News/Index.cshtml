@@ -11,7 +11,7 @@
         <div class="search-bar">
             <form method="get" action="/News" class="search-form">
                 <input type="text" name="searchString" class="search-input"
-                       value="@ViewBag.CurrentSearch" placeholder="🔍 Haberlerde Ara">
+                       value="@ViewBag.CurrentSearch" placeholder=" Haberlerde Ara">
                 <button type="submit" class="search-button">Ara</button>
             </form>
         </div>
@@ -70,9 +70,8 @@
                             <small class="news-date">
                                  @news.PublishedDate.ToString("dd MMMM yyyy")
                             </small>
-                            <a href="/News/Detail/@news.Id" class="read-more">
-                                 Devamını Oku
-                            </a>
+
+                            <a asp-area="" asp-controller="News" asp-action="Edit" asp-route-id="@news.Id" class="read-more">Düzenle</a>
                         </div>
                     </div>
                 }
