@@ -45,7 +45,9 @@
                         @* Eğer resim varsa göster *@
                         @if (!string.IsNullOrEmpty(news.ImageUrl))
                         {
-                            <img src="@news.ImageUrl" class="news-image" alt="@news.Title">
+                            @* <img src="@news.ImageUrl" class="news-image"  alt="@news.Title" > *@
+                            <img src="~/images/sporklüpleri.jpg" class="news-image"  alt="@news.Title" >
+                            
                         }
                         
                         <div class="news-content">

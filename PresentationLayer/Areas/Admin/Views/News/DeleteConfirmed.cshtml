@@ -1,0 +1,33 @@
+﻿@model EntityLayer.Concrete.NewsArticle
+@{
+    ViewData["Title"] = "Haber Sil";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Haber Sil</h2>
+
+<h3>Bu haberi silmek istediğinizden emin misiniz?</h3>
+<div>
+    <h4>Haber Detayları</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Başlık</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Title)</dd>
+
+        <dt class="col-sm-2">Yazar</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Author)</dd>
+
+        <dt class="col-sm-2">Yayın Tarihi</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.PublishedDate)</dd>
+
+        <dt class="col-sm-2">Haber 1görseli</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.ImageUrl)</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Sil" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
+    </form>
+</div>
+

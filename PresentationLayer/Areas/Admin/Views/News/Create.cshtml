@@ -1,0 +1,45 @@
+﻿@model EntityLayer.Concrete.NewsArticle
+
+@{
+    ViewData["Title"] = "Yeni Haber Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>Yeni Haber Ekle</h2>
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Title" class="control-label">Başlık</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Content" class="control-label">İçerik</label>
+        <textarea asp-for="Content" class="form-control" rows="10"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="ImageUrl">Resim Yükle</label>
+        <input type="file" name="ImageUrl" class="form-control" />
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Author" class="control-label">Yazar</label>
+        <input asp-for="Author" class="form-control" />
+        <span asp-validation-for="Author" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Tags" class="control-label">Etiketler (virgülle ayırın)</label>
+        <input asp-for="Tags" class="form-control" />
+        <span asp-validation-for="Tags" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Kaydet" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
+    </div>
+</form>

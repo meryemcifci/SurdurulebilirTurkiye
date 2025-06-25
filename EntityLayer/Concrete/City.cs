@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-    public class City
+    public class City //geridönüşüm konteynerlerinin bulunduğu şehirleri ve konumlarını temsil eden sınıf
     {
         public int CityID { get; set; } // Primary Key
         public string CityName { get; set; }

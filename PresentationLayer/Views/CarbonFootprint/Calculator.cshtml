@@ -4,10 +4,36 @@
     ViewData["Title"] = "Karbon Ayak İzi Hesaplama Aracı";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    .page-title {
+        color: #064e3b;
+        font-weight: 650;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        text-align: center;
+        margin-bottom: 4rem;
+        text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        background: none;
+        -webkit-background-clip: initial;
+        -webkit-text-fill-color: initial;
+        background-clip: initial;
+        position: relative;
+    }
 
+    .page-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(90deg, #10b981, #34d399, #6ee7b7);
+        border-radius: 2px;
+}
+</style>
 
 <div class="container">
-    <h2 class="text-center text-success">@ViewData["Title"]</h2>
+    <h2 class="text-center text-success page-title">@ViewData["Title"]</h2>
 
     <form asp-action="Calculate" method="post">
         <div class="row">

@@ -1,0 +1,44 @@
+﻿@model List<EntityLayer.Concrete.City>
+
+@{
+    ViewData["Title"] = "Nerede Geri Dönüştürebilirim?";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="css/map.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
+<h1 class="title">Nerede Geri Dönüştürebilirim?</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <div id="map" style="height: 600px;"></div>
+    </div>
+    <div class="col-md-4">
+        <div id="info-panel" class="p-3 bg-light rounded shadow-sm">
+            <h5>Detay Bilgisi</h5>
+            <div id="info-content">Bir noktaya tıklayın</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var cityData = @Html.Raw(Json.Serialize(Model));
+
+    var map = L.map('map').setView([40.78, 30.39], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OSM'
+    }).addTo(map);
+
+    cityData.forEach(function (city) {
+        var marker = L.marker([city.latitude, city.longitude]).addTo(map);
+        marker.on('click', function () {
+            document.getElementById('info-content').innerHTML = `
+                <strong>${city.cityName}</strong><br />
+                Koordinat: ${city.latitude}, ${city.longitude}
+            `;
+        });
+    });
+</script>
+
+

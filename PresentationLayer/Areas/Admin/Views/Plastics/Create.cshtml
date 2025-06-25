@@ -1,0 +1,46 @@
+﻿
+@model EntityLayer.Concrete.Plastic
+
+@{
+    ViewData["Title"] = "Yeni Plastik Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Plastik Ekle</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group mb-3">
+        <label asp-for="PlasticName" class="form-label"></label>
+        <input asp-for="PlasticName" class="form-control" />
+        <span asp-validation-for="PlasticName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Description" class="form-label"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="ProductionProcess" class="form-label"></label>
+        <textarea asp-for="ProductionProcess" class="form-control"></textarea>
+        <span asp-validation-for="ProductionProcess" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Cost" class="form-label"></label>
+        <input asp-for="Cost" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="Cost" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="EnvironmentalImpact" class="form-label"></label>
+        <input asp-for="EnvironmentalImpact" class="form-control" type="number" step="0.1" />
+        <span asp-validation-for="EnvironmentalImpact" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <a asp-action="Index" class="btn btn-secondary ms-2">İptal</a>
+</form>
+
+

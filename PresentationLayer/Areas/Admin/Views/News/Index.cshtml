@@ -1,0 +1,96 @@
+﻿@model IEnumerable<EntityLayer.Concrete.NewsArticle>
+@{
+    ViewData["Title"] = "Haber Yönetimi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Haber Yönetimi</h2>
+
+<div class="mb-3">
+    <a asp-area="Admin" asp-controller="News" asp-action="Create" class="btn btn-success">Yeni Haber Ekle</a>
+
+</div>
+
+<!-- Arama Formu -->
+<form asp-action="Search" method="get" class="mb-3">
+    <div class="input-group">
+        <input type="text" name="searchTerm" class="form-control" placeholder="Haber ara..." value="@ViewBag.SearchTerm">
+        <button class="btn btn-outline-secondary" type="submit">
+            <i class="fas fa-search"></i> Ara
+        </button>
+    </div>
+</form>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Başlık</th>
+                <th>Yazar</th>
+                <th>Yayın Tarihi</th>
+                <th>Resim</th>
+                <th>Durum</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Author)</td>
+                    <td>@Html.DisplayFor(modelItem => item.PublishedDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ImageUrl)</td>
+                    <td>
+                        <span class="badge @(item.IsActive ? "bg-success" : "bg-danger")">
+                            @(item.IsActive ? "Aktif" : "Pasif")
+                        </span>
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">
+                            <i class="fas fa-eye"></i> Detay
+                        </a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">
+                            <i class="fas fa-edit"></i> Düzenle
+                        </a>
+                        <button onclick="toggleStatus(@item.Id)" class="btn btn-secondary btn-sm">
+                            <i class="fas fa-toggle-on"></i> Durum
+                        </button>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash"></i> Sil
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+function toggleStatus(id) {
+    if (confirm('Bu haberin durumunu değiştirmek istediğinizden emin misiniz?')) {
+        $.ajax({
+            url: '@Url.Action("ToggleStatus", "News")',
+            type: 'POST',
+            data: { id: id },
+            success: function(result) {
+                if (result.success) {
+                    alert(result.message);
+                    location.reload();
+                } else {
+                    alert(result.message);
+                }
+            }
+        });
+    }
+}
+</script>
+

@@ -4,6 +4,7 @@
 }
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link rel="stylesheet" href="~/SustainableTürkiyeFrontend/css/style.css">
+
 <div class="totaly">
     <div class="slider-container">
         <div class="slider">
@@ -38,7 +39,6 @@
        @*  <p>Açıklama buraya yüklenecek...</p> *@
     </div>
 
-
     <!-- Haberler / Blog Yazıları -->
     <section class="news-section">
         <h2>HABERLER</h2>
@@ -67,6 +67,7 @@
         </div>
     </section>
 </div>
+
 <!--CSS -->
 <style>
     .slider-container {
@@ -136,15 +137,74 @@
         right: 10px;
     }
 
+
     .goals-title {
-        padding: 2rem;
-        font-size: 2.5em;
+        color: #064e3b;
+        padding:25px;
+        font-weight: 650;
+        font-size: clamp(2.5rem, 5vw, 4rem);
         text-align: center;
-        align-content: center;
-        color: #67a467;
-        margin-bottom: 40px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
+        margin-bottom: 4rem;
+        text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        background: none;
+        -webkit-background-clip: initial;
+        -webkit-text-fill-color: initial;
+        background-clip: initial;
+        position: relative;
+    }
+
+    .goals-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(90deg, #10b981, #34d399, #6ee7b7);
+        border-radius: 2px;
+    }
+
+    #goal-description {
+        margin-top: 30px;
+        padding: 20px;
+        background: #f0f8f0; 
+        border: 2px solid #d1fae5;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+        font-family: 'Segoe UI', sans-serif;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #goal-description h4 {
+        color: #065f46;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    #goal-description p {
+        font-size: 16px;
+        color: #1f2937;
+        line-height: 1.6;
+    }
+
+    #goal-description {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.4s forwards;
+    }
+
+    @@keyframes fadeInUp {
+        to
+
+    {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
     }
 </style>
 
@@ -202,5 +262,10 @@
                  currentDescriptionId = id;
              });
      }
+        descContainer.innerHTML = html;
+        descContainer.classList.remove('fade-in');
+        void descContainer.offsetWidth; // reflow
+        descContainer.classList.add('fade-in');
+
 
 </script>

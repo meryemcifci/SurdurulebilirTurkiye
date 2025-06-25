@@ -3,6 +3,111 @@
     ViewData["Title"] = "Surdurulebilirlik";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
 
-<h1>Surdurulebilirlik</h1>
+    .title {
+        color: #064e3b;
+        padding: 25px;
+        font-weight: 650;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        text-align: center;
+        margin-bottom: 4rem;
+        text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        background: none;
+        -webkit-background-clip: initial;
+        -webkit-text-fill-color: initial;
+        background-clip: initial;
+        position: relative;
+    }
+
+    .title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(90deg, #10b981, #34d399, #6ee7b7);
+        border-radius: 2px;
+    }
+
+    .card-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .card {
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-align: center;
+        background-color: #f0fdf4;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+        text-decoration: none;
+        color: #064e3b;
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+
+    .card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        background-color: #dcfce7;
+    }
+
+
+</style>
+
+<h1 class="title">
+    Sürdürülebilir Plastik Alternatifleri
+</h1>
+<p class="short-text">
+    Çevreye duyarlı plastikler hakkında bilinçlenin. Biyobozunur, geri dönüştürülmüş ve doğa dostu ambalaj seçenekleriyle daha sürdürülebilir bir geleceğe katkı sağlayın.
+</p>
+<p class="long-text">
+    Plastik kullanımı, çevre kirliliği ve doğal kaynakların tükenmesi gibi sorunlara yol açabilir. Ancak, sürdürülebilir plastik alternatifleri ile bu sorunların üstesinden gelebiliriz. Biyobozunur plastikler, geri dönüştürülmüş malzemelerden üretilen plastikler ve doğa dostu ambalaj seçenekleri, çevreye duyarlı bir yaşam tarzını destekler.
+    Bu alternatifler, atık miktarını azaltır, enerji tasarrufu sağlar ve doğal kaynakların korunmasına yardımcı olur. Sürdürülebilir plastikler hakkında daha fazla bilgi edinerek, çevre dostu seçimler yapabilir ve gelecek nesillere daha temiz bir dünya bırakabilirsiniz.
+</p>
+<table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif;">
+    <thead>
+        <tr style="background-color: #4CAF50; color: white;">
+            <th style="padding: 10px; border: 1px solid #ddd;">Plastik Türü</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">Avantajlar</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">Sınırlamalar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Biyobozunur Plastik</strong></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Doğada çözünür, çevre dostu</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Özel şartlar gerekebilir</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Geri Dönüştürülmüş Plastik</strong></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Atık azaltımı, enerji tasarrufu</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Kalite düşebilir</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Doğa Dostu Ambalaj</strong></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Kompostlanabilir, yenilenebilir kaynak</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Üretim enerji yoğun olabilir</td>
+        </tr>
+    </tbody>
+</table>
+<div class="card-container">
+    <a asp-controller="Services" asp-action="Biyobozunur" class="card">
+        Biyobozunur Plastik
+    </a>
+    <a asp-controller="Services" asp-action="GeriDonusum" class="card">
+        Geri Dönüştürülmüş Plastik
+    </a>
+    <a asp-controller="Services" asp-action="DogaDostu" class="card">
+        Doğa Dostu Ambalaj
+    </a>
+</div>
 

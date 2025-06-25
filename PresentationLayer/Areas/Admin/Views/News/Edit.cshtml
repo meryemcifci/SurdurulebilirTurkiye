@@ -1,0 +1,67 @@
+﻿@model EntityLayer.Concrete.NewsArticle
+
+@{
+    ViewData["Title"] = "Haber Düzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2>Haber Düzenle</h2>
+
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group mb-3">
+        <label asp-for="Title" class="control-label">Başlık</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Content" class="control-label">İçerik</label>
+        <textarea asp-for="Content" class="form-control" rows="10"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group mb-3">
+        <label for="ImageUrl">Resim Yükle</label>
+        <input type="file" name="ImageUrl" class="form-control" accept="image/*" />
+        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+        {
+            <div class="mt-2">
+                <img src="@Model.ImageUrl" alt="Mevcut Resim" style="max-width: 200px; max-height: 200px;" />
+                <p><small>Mevcut resim (yeni resim seçmezseniz bu korunur)</small></p>
+            </div>
+        }
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Author" class="control-label">Yazar</label>
+        <input asp-for="Author" class="form-control" />
+        <span asp-validation-for="Author" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="PublishedDate" class="control-label">Yayın Tarihi</label>
+        <input asp-for="PublishedDate" class="form-control" type="datetime-local" />
+        <span asp-validation-for="PublishedDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Tags" class="control-label">Etiketler (virgülle ayırın)</label>
+        <input asp-for="Tags" class="form-control" />
+        <span asp-validation-for="Tags" class="text-danger"></span>
+    </div>
+
+    <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" asp-for="IsActive" />
+        <label class="form-check-label" asp-for="IsActive">Aktif</label>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Güncelle" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
+    </div>
+</form>

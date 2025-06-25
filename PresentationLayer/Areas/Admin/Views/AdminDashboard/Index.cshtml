@@ -2,13 +2,49 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<style>
 
-<h1>HELLLLLLLOOOOOOOOOOOOOOOOOOO</h1>
+/* Ana içerik */
+    .main {
+      flex: 1;
+      padding: 20px;
+    }
 
-<h2>Admin Paneline Hoş Geldiniz</h2>
-<p>Burada kullanıcıları yönetebilir, istatistikleri görebilir ve sistem ayarlarını yapabilirsiniz.</p>
 
-<p>
-    Burada ne yapmak istiyorsun?
+    .content-boxes {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
 
-</p>
+    .box {
+      background-color: #e0e0e0;
+      padding: 20px;
+      text-align: center;
+      font-size: 18px;
+      border-radius: 8px;
+    }
+
+    .logout {
+      background-color: #ff4d4d;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .logout:hover {
+      background-color: #cc0000;
+    }
+  </style>
+
+<div class="main">
+  
+    <div class="content-boxes">
+        <div class="box">Geri Dönüşüm</div>
+        <div class="box">Oyunlar</div>
+        <div class="box">Sürdürülebilirlik Panelleri</div>
+        <div class="box">Kullanıcılar</div>
+    </div>
+</div>

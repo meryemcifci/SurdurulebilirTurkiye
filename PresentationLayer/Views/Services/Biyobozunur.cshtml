@@ -1,0 +1,122 @@
+﻿
+@{
+    ViewData["Title"] = "Biyobozunur Plastik Ürünleri";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model List<EntityLayer.Concrete.Plastic> 
+
+<h2 class="title">Biyobozunur Plastik Ürünleri</h2>
+
+@if (Model != null && Model.Count > 0)
+{
+  
+    <div class="grid-container">
+        @foreach (var plastic in Model)
+        {
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <!-- Ön Yüz -->
+                    <div class="flip-card-front">
+                        <h4>@plastic.PlasticName</h4>
+                        <p>@plastic.Description</p>
+                        <p><strong>@plastic.Cost.ToString("C")</strong></p>
+                    </div>
+                    <!-- Arka Yüz -->
+                    <div class="flip-card-back">
+                        <h3>Üretim Süreci</h3>
+                        <h5>@plastic.PlasticName</h5>
+                        <p>@plastic.ProductionProcess</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p>Bu kategoriye ait ürün bulunmamaktadır.</p>
+}
+
+ <style>
+
+    .title {
+        color: #064e3b;
+        padding: 25px;
+        font-weight: 650;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        text-align: center;
+        margin-bottom: 4rem;
+        text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        background: none;
+        -webkit-background-clip: initial;
+        -webkit-text-fill-color: initial;
+        background-clip: initial;
+        position: relative;
+    }
+
+    .title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(90deg, #10b981, #34d399, #6ee7b7);
+        border-radius: 2px;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .flip-card {
+        background-color: transparent;
+        width: 100%;
+        height: 250px;
+        perspective: 1000px;
+    }
+
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 1rem;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        background-color: #f0fdf4;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .flip-card-front {
+        color: #065f46;
+    }
+
+    .flip-card-back {
+        background-color: #dcfce7;
+        transform: rotateY(180deg);
+        color: #064e3b;
+    }
+</style>
+
